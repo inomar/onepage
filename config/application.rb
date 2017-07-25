@@ -14,5 +14,16 @@ module Onepage
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    config.action_view.field_error_proc = proc { |html_tag, instance| html_tag }
+    config.time_zone = 'Asia/Tokyo'
+    config.i18n.default_locale = :ja
+
+    config.generators do |g|
+      g.test_framework       :rspec, view_specs: false, helper_specs: false, fixture: true
+      g.helper               false
+      g.stylesheets          false
+      g.javascripts          false
+      g.fixture_replacement  :factory_girl, dir: "spec/support/factories"
+	end
   end
 end
