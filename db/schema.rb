@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726021831) do
+ActiveRecord::Schema.define(version: 20170726062250) do
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170726021831) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "pen_name"
-    t.text "image_url"
+    t.string "image_id"
     t.text "description"
     t.text "other"
     t.integer "social_profile_id"

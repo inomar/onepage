@@ -1,0 +1,4 @@
+<% @authors.each do | author | %>
+  <%= author.name %>
+  <%= attachment_image_tag(author, :image, :fill, 100, 100, format: 'jpg') %>
+<% end %>
