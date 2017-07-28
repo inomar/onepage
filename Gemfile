@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'foreman'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'font-awesome-rails'
 

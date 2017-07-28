@@ -1,0 +1,4 @@
+development: &development
+  twitter:
+    key: iUDnPifEFAQqD18GBQMDuDwj9
+    secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO

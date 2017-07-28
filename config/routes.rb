@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   devise_for :authors, :controllers => {
     :sessions => "authors/sessions",
     :registrations => "authors/registrations",
-    :passwords     => "authors/passwords"
+    :passwords     => "authors/passwords",
+    :omniauth_callbacks => "authors/omniauth_callbacks",
    }
    resources :authors, :only => [:index, :show]
-   
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

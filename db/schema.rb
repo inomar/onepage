@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726062250) do
+ActiveRecord::Schema.define(version: 20170728044216) do
 
   create_table "authors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -35,4 +35,26 @@ ActiveRecord::Schema.define(version: 20170726062250) do
     t.index ["reset_password_token"], name: "index_authors_on_reset_password_token", unique: true
   end
 
+  create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "author_id"
+    t.string "access_token"
+    t.string "provider"
+    t.string "access_secret"
+    t.string "uid"
+    t.string "name"
+    t.string "pen_name"
+    t.string "email"
+    t.string "url"
+    t.string "image_url"
+    t.string "description"
+    t.text "other"
+    t.text "credentials"
+    t.text "raw_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_social_profiles_on_author_id"
+    t.index ["provider", "uid"], name: "index_social_profiles_on_provider_and_uid", unique: true
+  end
+
+  add_foreign_key "social_profiles", "authors"
 end
