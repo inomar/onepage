@@ -1,0 +1,10 @@
+<% @pages.each do | page | %>
+<div class="card" style="width: 350px;">
+  <img class="card-img-top" src="http://www.gizmodo.jp/images/2015/09/150907swcrap.jpg" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title"><%= page.title %></h4>
+    <p class="card-text"><%= page.summary %></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<% end %>
