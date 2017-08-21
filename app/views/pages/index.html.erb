@@ -1,10 +1,13 @@
 <% @pages.each do | page | %>
-<div class="card" style="width: 350px;">
-  <img class="card-img-top" src="http://www.gizmodo.jp/images/2015/09/150907swcrap.jpg" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title"><%= page.title %></h4>
-    <p class="card-text"><%= page.summary %></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<% if page.is_open %>
+  <div class="card" style="width: 350px;">
+    <%= attachment_image_tag(page, :cover, :fill, 100, 100, format: 'jpg', class: 'card-img-top') %>
+    <div class="card-block">
+      <h4 class="card-title"><%= page.title %></h4>
+      <p class="card-text"><%= page.summary %></p>
+      <%= link_to '詳細', page_path(page), class: 'btn btn-primary' %>
+      <%= link_to '編集', edit_page_path(page), class: 'btn btn-primary' %>
+    </div>
   </div>
-</div>
+<% end %>
 <% end %>

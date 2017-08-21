@@ -1,0 +1,20 @@
+<div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <%= f.label :summary %>
+    <%= f.text_area :summary, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <%= f.label :story %>
+    <%= f.text_area :story, class: 'form-control' %>
+</div>
+<div>
+    <%= f.label :cover %><br>
+    <%= f.attachment_field :cover %>
+</div>
+
+
+<%= f.submit "下書き保存", name: "draft", class: "btn btn-primary" %>
+<%= f.submit "公開", class: "btn btn-primary" %>

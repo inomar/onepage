@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 20170729151858) do
     t.string "title", null: false
     t.string "summary", null: false
     t.text "story", null: false
-    t.text "cover"
-    t.boolean "is_open", default: false
+    t.string "cover_id"
+    t.boolean "is_open", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

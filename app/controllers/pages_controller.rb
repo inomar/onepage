@@ -3,6 +3,10 @@ class PagesController < ApplicationController
     @pages = Page.all
   end
 
+  def show
+    @page = Page.find(params[:id])
+  end
+
   def new
     @page = Page.new
   end
@@ -10,13 +14,27 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_param)
     @page.save
-    render 'index'
+    if params[:draft]
+      @page.is_open = false
+      @page.save
+    end
+    redirect_to new
+  end
+
+  def edit
+    @page = Page.find(params[:id])
+  end
+
+  def update
+    @page = Page.find(params[:id])
+    @page.update(page_param)
+    render 'edit'
   end
 
 
   private
 
   def page_param
-    params.require(:page).permit(:title, :summary, :story)
+    params.require(:page).permit(:title, :summary, :story, :cover)
   end
 end
