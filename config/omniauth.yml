@@ -2,3 +2,13 @@ development: &development
   twitter:
     key: iUDnPifEFAQqD18GBQMDuDwj9
     secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
+
+stagign: &staging
+  twitter:
+    key: iUDnPifEFAQqD18GBQMDuDwj9
+    secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
+
+production: &production
+  twitter:
+    key: ENV['']
+    secret: ENV['']
