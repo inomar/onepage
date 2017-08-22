@@ -5,7 +5,7 @@ set :application, "onepage"
 set :repo_url, "git@github.com:inomar/onepage.git"
 set :deploy_to, '/home/centos/onepage'
 set :scm, :git
-set :branch, 'develop'
+set :branch, 'feature/capistrano'
 
 set :format, :pretty
 set :log_level, :debug # :info or :debugs
@@ -28,6 +28,11 @@ set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
 #set :rbenv_custom_path, '/home/centos/.rbenv'
 
+set :default_env, {
+		SECRET_KEY_BASE: ENV['SECRET_KEY_BASE'],
+		DEVISE_SECRET_KEY: ENV['DEVISE_SECRET_KEY'],
+		RAILS_SERVE_STATIC_FILES: true
+}
 
 # after 'npm:install', 'assets:build'
 # namespace :assets do
