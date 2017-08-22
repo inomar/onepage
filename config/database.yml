@@ -47,6 +47,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: onepage_staging
+  username: onepage
+  password: <%= ENV['ONEPAGE_DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: onepage_production
