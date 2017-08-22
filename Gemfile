@@ -21,9 +21,9 @@ gem 'omniauth-twitter'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'font-awesome-rails'
 
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
-gem "refile-s3", '~> 0.2.0'
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'refile-s3', '~> 0.2.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -32,6 +32,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-unicorn', :git => 'git@github.com:noppefoxwolf/capistrano3-unicorn.git'
 end
 
 group :development do
@@ -39,11 +44,15 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "ffaker"
-  gem "database_cleaner"
+  gem 'ffaker'
+  gem 'database_cleaner'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem "launchy"
+  gem 'launchy'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
