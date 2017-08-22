@@ -1,13 +1,44 @@
 # config valid only for current version of Capistrano
 lock "3.9.0"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:inomar/onepage"
+set :application, "onepage"
+set :repo_url, "git@github.com:inomar/onepage.git"
 set :deploy_to, '/home/centos/onepage'
-set :pty, true
 set :scm, :git
+set :branch, 'develop'
+
+set :format, :pretty
+set :log_level, :debug # :info or :debugs
+
+set :pty, true
+set :keep_releases, 3
+
+# nodebrew
+set :nodebrew_type, :user
+set :nodebrew_node, 'v7.7.0'
+set :nodebrew_map_bins, %w{npm node}
+set :npm_flags, ''
+
+# renv
 set :rbenv_ruby, '2.4.0'
-set :rbenv_type, :system
+set :rbenv_type, :user
+set :rbenv_path, '~/.rbenv'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+set :rbenv_roles, :all
+#set :rbenv_custom_path, '/home/centos/.rbenv'
+
+
+# after 'npm:install', 'assets:build'
+# namespace :assets do
+# 	task :build do
+# 		on roles(:web) do
+# 			within fetch(:npm_target_path, release_path) do
+# 				execute :npm, "run build:js"
+# 			end
+# 		end
+# 	end
+# end
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do

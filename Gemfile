@@ -21,6 +21,8 @@ gem 'omniauth-twitter'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'font-awesome-rails'
 
+gem 'therubyracer'
+
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'refile-s3', '~> 0.2.0'

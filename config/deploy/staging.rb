@@ -1,5 +1,5 @@
 set :pty, true
-server ENV['STAGING_HOST'], user: 'deploy', roles: %w{app db web}
+server ENV['STAGING_HOST'], user: 'centos', roles: %w{app db web}
 
 set :linked_dirs, %w{bin log tmp/backup tmp/pids tmp/sockets vendor/bundle}
 
@@ -7,6 +7,14 @@ shared_path = "/home/centos/onepage/shared"
 set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 set :unicorn_options, -> { "--path /staging" }
 set :unicorn_exec, -> { "unicorn_rails" }
+
+# Custom SSH Options
+# ==================
+set :ssh_options, {
+		keys: [File.expand_path('~/key/onepage_key.pem')],
+		forward_agent: true,
+		auth_methods: %w(publickey)
+}
 
 # server-based syntax
 # ======================
