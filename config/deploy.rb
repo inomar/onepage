@@ -18,7 +18,7 @@ set :nodebrew_type, :user
 set :nodebrew_node, 'v7.7.0'
 set :nodebrew_map_bins, %w{npm node}
 set :npm_flags, ''
-
+set :nodebrew_custom_path, '/home/centos/.nodebrew'
 # renv
 set :rbenv_ruby, '2.4.0'
 set :rbenv_type, :user

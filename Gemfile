@@ -38,6 +38,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+	gem 'capistrano-nodebrew'
+	gem 'capistrano-npm'
   gem 'capistrano3-unicorn', :git => 'git@github.com:noppefoxwolf/capistrano3-unicorn.git'
 end
 
