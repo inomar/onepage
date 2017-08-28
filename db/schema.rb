@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170729151858) do
     t.text "story", null: false
     t.string "cover_id"
     t.boolean "is_open", default: true
+    t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

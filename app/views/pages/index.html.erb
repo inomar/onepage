@@ -6,7 +6,9 @@
       <h4 class="card-title"><%= page.title %></h4>
       <p class="card-text"><%= page.summary %></p>
       <%= link_to '詳細', page_path(page), class: 'btn btn-primary' %>
-      <%= link_to '編集', edit_page_path(page), class: 'btn btn-primary' %>
+      <% if current_author == page.author %>
+          <%= link_to '編集', edit_page_path(page), class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 <% end %>

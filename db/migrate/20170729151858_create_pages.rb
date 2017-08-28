@@ -7,6 +7,7 @@ class CreatePages < ActiveRecord::Migration[5.1]
       t.string :cover_id
       t.boolean :is_open, default: true
 
+      t.integer :author_id, null: false
       t.timestamps
     end
   end

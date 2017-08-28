@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_action :authenticate_author!, only: [:new, :create, :edit, :update]
+
   def index
     @pages = Page.all
   end
@@ -13,11 +15,9 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_param)
+    @page.author = current_author
+    @page.is_open = false if draft?
     @page.save
-    if params[:draft]
-      @page.is_open = false
-      @page.save
-    end
     redirect_to new
   end
 
@@ -27,6 +27,11 @@ class PagesController < ApplicationController
 
   def update
     @page = Page.find(params[:id])
+    if draft?
+      @page.is_open = false
+    else
+      @page.is_open = true
+    end
     @page.update(page_param)
     render 'edit'
   end
@@ -36,5 +41,9 @@ class PagesController < ApplicationController
 
   def page_param
     params.require(:page).permit(:title, :summary, :story, :cover)
+  end
+
+  def draft?
+    !params[:draft].nil?
   end
 end
