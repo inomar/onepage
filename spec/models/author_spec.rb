@@ -13,7 +13,7 @@ RSpec.describe Author, type: :model do
     it "with a name, pen_name and email" do
       author = build(:author,
         name: "Makoto",
-        pen_name: "inomar",
+        pen_name: "inomar14",
         email: "inomar@example.com"
       )
       expect(author).to be_valid
@@ -54,8 +54,8 @@ RSpec.describe Author, type: :model do
 
     # ペンネームが重複していれば無効
     it "with a duplicate pen_name" do
-      create(:author, pen_name: "inomar")
-      author = build(:author, pen_name: "inomar")
+      create(:author, pen_name: "inomar14")
+      author = build(:author, pen_name: "inomar14")
       author.valid?
       expect(author.errors[:pen_name]).to include("はすでに存在します")
     end
@@ -80,15 +80,7 @@ RSpec.describe Author, type: :model do
       author = build(:author, password: nil)
       author.valid?
       expect(author.errors[:password]).to include("を入力してください")
-    end
-
-    # パスワードが最大文字数を越えれば無効
-    it "a password maximum number" do
-      max = 18
-      author = build(:author, password: "a" * (max+1))
-      author.valid?
-      expect(author.errors[:password]).to include("は#{max}文字以内で入力してください")
-    end
+		end
 
     # パスワードが最小文字数より下回れば無効
     it "a password maximum number" do
