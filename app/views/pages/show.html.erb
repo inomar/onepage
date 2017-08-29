@@ -2,6 +2,11 @@
 <div>
   <%= @page.story %>
 </div>
+<div>
+  <% @page.tag_list.each do |tag| %>
+    <span><%= tag %></span>
+  <% end %>
+</div>
 
 <%= @page.author.pen_name %>
 

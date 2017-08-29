@@ -40,7 +40,7 @@ class PagesController < ApplicationController
   private
 
   def page_param
-    params.require(:page).permit(:title, :summary, :story, :cover)
+    params.require(:page).permit(:title, :summary, :story, :cover, :tag_list)
   end
 
   def draft?

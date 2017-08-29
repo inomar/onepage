@@ -10,6 +10,10 @@
     <%= f.label :story %>
     <%= f.text_area :story, class: 'form-control' %>
 </div>
+<div class="form-group">
+  <%= f.label 'page[tag_list]' %>
+  <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form-control' %>
+</div>
 <div>
     <%= f.label :cover %><br>
     <%= f.attachment_field :cover %>
