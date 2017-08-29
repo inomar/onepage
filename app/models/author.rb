@@ -10,7 +10,6 @@ class Author < ApplicationRecord
   validates :email, presence: true, unless: :twitter?
   validates :name, presence: true, length: { maximum: 50 }
   validates :pen_name, presence: true, length: { maximum: 50 }, uniqueness: true
-  #validates :password, length: { in: 6..18 }, unless: :twitter?
   validates :description, length: { maximum: 1000 }
 
   attachment :image
