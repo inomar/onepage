@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new
+    # @categories = Category.all
   end
 
   def create
@@ -40,7 +41,7 @@ class PagesController < ApplicationController
   private
 
   def page_param
-    params.require(:page).permit(:title, :summary, :story, :cover, :tag_list)
+    params.require(:page).permit(:title, :summary, :story, :cover, :tag_list, :category_id)
   end
 
   def draft?

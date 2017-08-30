@@ -14,6 +14,9 @@
   <%= f.label 'page[tag_list]' %>
   <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form-control' %>
 </div>
+<div class="form-group">
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+</div>
 <div>
     <%= f.label :cover %><br>
     <%= f.attachment_field :cover %>
