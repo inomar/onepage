@@ -17,4 +17,7 @@ class Page < ApplicationRecord
   belongs_to :author
   attachment :cover
   acts_as_taggable_on :tags
+
+  has_many :category_pages
+  has_many :categories, through: :category_pages
 end
