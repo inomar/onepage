@@ -166,5 +166,6 @@ fabric.properties
 # See https://github.com/joeblau/gitignore.io/issues/186 and https://github.com/joeblau/gitignore.io/issues/360
 
 .idea/
-
+.idea/onepage.iml
+.idea/workspace.xml
 # End of https://www.gitignore.io/api/rubymine+all
