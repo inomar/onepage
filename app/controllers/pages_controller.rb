@@ -19,11 +19,12 @@ class PagesController < ApplicationController
     @page.author = current_author
     @page.is_open = false if draft?
     @page.save
-    redirect_to new
+    redirect_to :new
   end
 
   def edit
     @page = Page.find(params[:id])
+
   end
 
   def update
@@ -37,11 +38,15 @@ class PagesController < ApplicationController
     render 'edit'
   end
 
+  def preview
+    @page = Page.find(params[:id])
+  end
+
 
   private
 
   def page_param
-    params.require(:page).permit(:title, :summary, :story, :cover, :tag_list, :category_id)
+    params.require(:page).permit(Page::PAGE_ATTRIBUTES)
   end
 
   def draft?

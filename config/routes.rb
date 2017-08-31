@@ -11,5 +11,6 @@ Rails.application.routes.draw do
    resources :authors, :only => [:index, :show]
 
   resources :pages
+	get 'pages/:id/preview', to: 'pages#preview', as: 'page_preview'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
