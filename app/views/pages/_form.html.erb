@@ -17,7 +17,7 @@
       <%= text_field_tag 'page[tag_list]', @page.tag_list.join(',') %>
     </div>
     <div class="field">
-      <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui field dropdown') %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class: 'ui field dropdown'}) %>
     </div>
     <div class="field">
       <%= f.label :cover %>

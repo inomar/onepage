@@ -6,6 +6,7 @@
 
 import Vue from 'vue'
 import App from './app.vue'
+import './semantic/dist/semantic.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
@@ -13,3 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log(app)
 })
+$('.ui.modal')
+    .modal('show')
+;
