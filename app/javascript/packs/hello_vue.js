@@ -7,13 +7,18 @@
 import Vue from 'vue'
 import App from './app.vue'
 import './semantic/dist/semantic.js'
+import tagsInput from 'tags-input/tags-input.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(document.createElement('hello'))
   const app = new Vue(App).$mount('hello')
-
   console.log(app)
-})
-$('.ui.modal')
-    .modal('show')
-;
+  tagsInput(document.querySelector('input[name="page[tag_list]"]'))
+
+});
+$('.js-header-menu').dropdown();
+$('.ui.normal.dropdown').dropdown();
+$('.ui.dropdown').dropdown({
+    allowAdditions: true,
+});
+$('.js-sidebar').sidebar('show');

@@ -1,2 +1,47 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<div class="ui secondary top fixed menu large">
+  <div class="ui container">
+    <%= link_to 'One Page', '/', class: 'item' %>
+    <%= link_to 'One Pageとは？', '/', class: 'item' %>
+    <%= link_to 'Pages', '/', class: 'item' %>
+    <%= link_to 'Authors', '/', class: 'item' %>
+    <div class="right menu">
+       <div class="item">
+         <% if author_signed_in? %>
+             <div class="ui horizontal list">
+               <div class="item pointing dropdown js-header-menu">
+                   <%= attachment_image_tag(current_author, :image, :fill, 100, 100, format: 'jpg', class: 'ui mini circular image ') %>
+                   <div class="content">
+                     <div class="ui sub header"><%= current_author.pen_name %></div>
+                     Coordinator
+                   </div>
+                   <div class="menu">
+                     <div class="item">Comfortable</div>
+                     <div class="item">Cozy</div>
+                   </div>
+               </div>
+             </div>
+         <% else %>
+             <%= link_to 'Sign up', new_author_registration_path, class: 'ui inverted button'  %> |
+             <%= link_to 'Login', new_author_session_path, class: 'ui inverted button'  %>
+             <%= link_to 'twitterでログイン', author_twitter_omniauth_authorize_path, class: 'ui inverted button' %>
+         <% end %>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="p-keyUnit">
+  <div class="p-keyUnit__filter">
+  </div>
+  <div class="p-keyUnit image"></div>
+  <div class="ui container">
+    <div class="p-keyUnit__text">
+      one page
+    </div>
+  </div>
+</div>
+<div class="ui vertical segment">
+
+</div>
+<%= link_to 'アカウント', edit_author_registration_path, class: 'ui inverted button' %> |
+<%= link_to 'ログアウト', destroy_author_session_path, method: :delete, class: 'ui inverted button'  %>

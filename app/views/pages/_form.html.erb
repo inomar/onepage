@@ -14,10 +14,10 @@
     </div>
     <div class="field">
       <%= f.label 'page[tag_list]' %>
-      <%= text_field_tag 'page[tag_list]', @page.tag_list.join(',') %>
+      <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'tags', id: 'tags' %>
     </div>
     <div class="field">
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class: 'ui field dropdown'}) %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class: 'ui fluid normal dropdown'}) %>
     </div>
     <div class="field">
       <%= f.label :cover %>
@@ -28,10 +28,6 @@
         <%= f.submit '公開', class: 'ui button' %>
     </div>
   </div>
-</div>
-
-<div>
-
 </div>
 
 
