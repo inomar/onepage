@@ -1235,6 +1235,22 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="semantic-ui-sass (vbundled(2.2.11.0)) [path][gem]">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/templates" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/tasks" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/bundler/gems/semantic-ui-sass-ddb56eebc86e/templates" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="sinatra (vbundled(2.0.0)) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.4.0/gems/sinatra-2.0.0/lib" />

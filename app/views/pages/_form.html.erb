@@ -1,27 +1,38 @@
-<div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
+<div class="ui container">
+  <div class="ui form">
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :summary %>
+      <%= f.text_area :summary %>
+    </div>
+    <div class="field">
+      <%= f.label :story %>
+      <%= f.text_area :story%>
+    </div>
+    <div class="field">
+      <%= f.label 'page[tag_list]' %>
+      <%= text_field_tag 'page[tag_list]', @page.tag_list.join(',') %>
+    </div>
+    <div class="field">
+      <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui field dropdown') %>
+    </div>
+    <div class="field">
+      <%= f.label :cover %>
+      <%= f.attachment_field :cover, class: 'ui button' %>
+    </div>
+    <div class="field">
+        <%= f.submit '下書き保存', name: 'draft', class: 'ui button' %>
+        <%= f.submit '公開', class: 'ui button' %>
+    </div>
+  </div>
 </div>
-<div class="form-group">
-    <%= f.label :summary %>
-    <%= f.text_area :summary, class: 'form-control' %>
-</div>
-<div class="form-group">
-    <%= f.label :story %>
-    <%= f.text_area :story, class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.label 'page[tag_list]' %>
-  <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
-</div>
+
 <div>
-    <%= f.label :cover %><br>
-    <%= f.attachment_field :cover %>
+
 </div>
 
 
-<%= f.submit '下書き保存', name: 'draft', class: 'btn btn-primary' %>
-<%= f.submit '公開', class: 'btn btn-primary' %>
+

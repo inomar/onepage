@@ -1,16 +1,19 @@
-<% @pages.each do | page | %>
-<% if page.is_open %>
-  <div class="card" style="width: 350px;">
-    <%= attachment_image_tag(page, :cover, :fill, 100, 100, format: 'jpg', class: 'card-img-top') %>
-    <div class="card-block">
-      <h4 class="card-title"><%= page.title %></h4>
-      <p class="card-text"><%= page.summary %></p>
-      <p class="card-text"><%= page.category.name %></p>
-      <%= link_to '詳細', page_path(page), class: 'btn btn-primary' %>
-      <% if current_author == page.author %>
-          <%= link_to '編集', edit_page_path(page), class: 'btn btn-primary' %>
+<div class="ui grid">
+  <% @pages.each do | page | %>
+      <% if page.is_open %>
+        <div class="four wide column"></div>
+            <%= attachment_image_tag(page, :cover, :fill, 100, 100, format: 'jpg', class: 'card-img-top') %>
+            <div class="card-block">
+              <h4 class="card-title"><%= page.title %></h4>
+              <p class="card-text"><%= page.summary %></p>
+              <p class="card-text"><%= page.category.name %></p>
+              <%= link_to '詳細', page_path(page), class: 'btn btn-primary' %>
+              <% if current_author == page.author %>
+                  <%= link_to '編集', edit_page_path(page), class: 'btn btn-primary' %>
+              <% end %>
+            </div>
+        </div>
       <% end %>
-    </div>
-  </div>
-<% end %>
-<% end %>
+  <% end %>
+</div>
+
