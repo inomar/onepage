@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     @page.author = current_author
     @page.is_open = false if draft?
     @page.save
-    redirect_to :new
+    redirect_to pages_path
   end
 
   def edit

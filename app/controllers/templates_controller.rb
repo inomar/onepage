@@ -1,5 +1,6 @@
 class TemplatesController < ApplicationController
 	before_action :authenticate_author!, only: %i(new create edit update)
+
 	def index
 		@templates = Template.all
 	end
@@ -42,8 +43,9 @@ class TemplatesController < ApplicationController
 
 	def duplicate
 		@template = Template.find(params[:id])
-		page = Page.new
-		redirect_to templates_path
+		@page = Page.new assign_page(@template)
+		@page.template_id = @template.id
+		render 'pages/new'
 	end
 
 	private
@@ -54,5 +56,14 @@ class TemplatesController < ApplicationController
 
 	def draft?
 		!params[:draft].nil?
+	end
+
+	def assign_page(template)
+		{
+			title: template[:title],
+			summary: template[:summary],
+			cover_id: template[:cover_id],
+			category_id: template[:category_id]
+		}
 	end
 end

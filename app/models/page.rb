@@ -14,7 +14,8 @@
 #
 
 class Page < ApplicationRecord
-  PAGE_ATTRIBUTES = %i(title summary story cover tag_list category_id).freeze
+  PAGE_ATTRIBUTES = %i(title summary story cover tag_list category_id template_id).freeze
+  belongs_to :template, optional: true
   belongs_to :author
   attachment :cover
   acts_as_taggable_on :tags
