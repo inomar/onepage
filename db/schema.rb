@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 20170913102754) do
   end
 
   create_table "templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "subject", null: false
     t.string "title"
     t.string "summary"
     t.text "description", null: false

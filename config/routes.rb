@@ -12,5 +12,8 @@ Rails.application.routes.draw do
 
   resources :pages
 	get 'pages/:id/preview', to: 'pages#preview', as: 'page_preview'
+
+  resources :templates
+	get 'templates/:id/duplicate', to: 'templates#duplicate', as: 'template_duplicate'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

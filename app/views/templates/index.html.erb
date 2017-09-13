@@ -1,0 +1,7 @@
+<h1>お題一覧</h1>
+<% @templates.each do |template| %>
+<div>
+  <%= template.subject %>
+  <p><%= template.description %></p>
+</div>
+<% end %>

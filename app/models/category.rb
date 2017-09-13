@@ -1,3 +1,4 @@
 class Category < ApplicationRecord
-	has_many :pages, dependent: :destroy
+	has_many :pages
+	has_many :templates
 end
