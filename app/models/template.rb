@@ -27,4 +27,13 @@ class Template < ApplicationRecord
 	validates :description,   presence: true, length: { maximum: 500 }
 	validates :author_id,     presence: true
 
+	def inherit_template
+		{
+				title: self.title,
+				summary: self.summary,
+				cover_id: self.cover_id,
+				category_id: self.category_id
+		}
+	end
+
 end

@@ -1,12 +1,12 @@
 class TemplatesController < ApplicationController
 	before_action :authenticate_author!, only: %i(new create edit update)
+  before_action :set_template, only: %i(show edit update destroy)
 
 	def index
 		@templates = Template.all
 	end
 
 	def show
-		@template = Template.find(params[:id])
 	end
 
 	def new
@@ -22,12 +22,9 @@ class TemplatesController < ApplicationController
 	end
 
 	def edit
-		@template = Template.find(params[:id])
-
 	end
 
 	def update
-		@template = Template.find(params[:id])
 		if draft?
 			@template.is_open = false
 		else
@@ -37,14 +34,15 @@ class TemplatesController < ApplicationController
 		render 'edit'
 	end
 
-	def preview
-		@template = Template.find(params[:id])
+	def destroy
+		@template.delete
+		redirect_to templates_path
 	end
 
 	def duplicate
 		@template = Template.find(params[:id])
-		@page = Page.new assign_page(@template)
-		@page.template_id = @template.id
+		@page = Page.new @template.inherit_template
+		@page.template = @template
 		render 'pages/new'
 	end
 
@@ -58,12 +56,7 @@ class TemplatesController < ApplicationController
 		!params[:draft].nil?
 	end
 
-	def assign_page(template)
-		{
-			title: template[:title],
-			summary: template[:summary],
-			cover_id: template[:cover_id],
-			category_id: template[:category_id]
-		}
+	def set_template
+		@template = Template.find(params[:id])
 	end
 end
