@@ -1,0 +1,31 @@
+<div class="card">
+  <%= link_to page_path(page), class: 'ui fluid image' do %>
+   <div class="ui grey right ribbon label">
+     <%= page.category.name %>
+   </div>
+    <img src="https://pbs.twimg.com/profile_images/647691403942694912/mkrnClYB.jpg">
+  <% end %>
+  <div class="content">
+    <a href="#" class="header"><%= page.title %></a>
+    <div class="meta">
+      <a>Friends</a>
+    </div>
+    <span>
+     <%= attachment_image_tag(page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+      <span>Username</span>
+    </span>
+
+    <div class="description">
+      Matthew is an interior designer living in New York.
+    </div>
+  </div>
+  <div class="extra content">
+      <span class="right floated">
+        Joined in 2013
+      </span>
+    <span>
+        <i class="comment outline icon"></i>
+        75 Friends
+      </span>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="ui teal inverted secondary menu">
+  <div class="ui container">
+    <p class="item">One page</p>
+    <a class="item">
+      Messages
+    </a>
+    <a class="item">
+      Friends
+    </a>
+    <div class="right menu">
+      <% if author_signed_in? %>
+          <div class="ui dropdown item">
+            <%= attachment_image_tag(@author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+            <div class="menu">
+              <%= link_to 'プロフィール', edit_author_registration_path, class: 'item'%>
+              <a class="item">Russian</a>
+              <%= link_to 'ログアウト', destroy_author_session_path, method: :delete, class: 'item' %>
+            </div>
+          </div>
+      <% else %>
+          <%= link_to '新規登録', new_author_registration_path, class: 'ui item' %>
+          <%= link_to 'ログイン', new_author_session_path, class: 'ui item' %>
+          <%= link_to 'twitter', author_twitter_omniauth_authorize_path, class: 'ui item' %>
+      <% end %>
+    </div>
+  </div>
+</div>

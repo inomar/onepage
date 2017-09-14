@@ -1,6 +1,8 @@
+<div class="ui piled segment">
 <%= render 'pages/detail' %>
 <%= @page.author.pen_name %>
 <% if current_author %>
   <%= '下書き' if !@page.is_open %>
   <%= link_to '編集', edit_page_path(@page) %>
 <% end %>
+</div>

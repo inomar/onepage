@@ -1,2 +1,22 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% @templates.each do |template| %>
+    <div class="ui segments">
+      <div class="ui grey segment">
+        <a class="ui grey ribbon label"><%= template.category.name %></a>
+        <%= link_to template.subject, template_path(template), class: 'ui medium header' %>
+        <div>
+          <%= attachment_image_tag(template.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+          <span><%= template.author.pen_name %></span>
+        </div>
+        <p><%= template.description %></p>
+        <div class="ui divider"></div>
+        <div class="ui link cards">
+          <% template.pages.each do |page| %>
+            <%= render 'layouts/card', page: page %>
+          <% end %>
+        </div>
+      </div>
+      <div class="ui bottom attached grey button">
+        この縛りに挑戦！！
+      </div>
+    </div>
+<% end %>
