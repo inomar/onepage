@@ -1,1 +1,3 @@
-<%= @page.title %>
+<% if params[:preview] %>
+  <%= render 'pages/detail' %>
+<% end %>

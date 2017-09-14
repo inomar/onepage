@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_author!, only: [:new, :create, :edit, :update]
+  before_action :set_page, only: %i(show edit update destroy preview)
 
   def index
     @pages = Page.all
@@ -23,12 +24,14 @@ class PagesController < ApplicationController
   end
 
   def edit
-    @page = Page.find(params[:id])
-
   end
 
   def update
-    @page = Page.find(params[:id])
+    if params[:preview]
+      @page = Page.new page_param
+      render :preview
+      return
+    end
     if draft?
       @page.is_open = false
     else
@@ -38,12 +41,17 @@ class PagesController < ApplicationController
     render 'edit'
   end
 
-  def preview
-    @page = Page.find(params[:id])
+  def destroy
+    @page.delete
+    # TODO: success message
+    redirect_to pages_path
   end
 
-
   private
+
+  def set_page
+    @page = Page.find(params[:id])
+  end
 
   def page_param
     params.require(:page).permit(Page::PAGE_ATTRIBUTES)

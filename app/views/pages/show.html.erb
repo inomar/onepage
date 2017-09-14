@@ -1,18 +1,5 @@
-<h1><%= @page.title %></h1>
-<div>
-  <%= @page.story %>
-</div>
-<div>
-  <% @page.tag_list.each do |tag| %>
-    <span><%= tag %></span>
-  <% end %>
-</div>
-<div>
-  <%= @page.category.name %>
-</div>
-
+<%= render 'pages/detail' %>
 <%= @page.author.pen_name %>
-
 <% if current_author %>
   <%= '下書き' if !@page.is_open %>
   <%= link_to '編集', edit_page_path(@page) %>
