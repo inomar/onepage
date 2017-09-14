@@ -1,11 +1,26 @@
+require 'ffaker'
+
+#  id          :integer          not null, primary key
+#  subject     :string(255)      not null
+#  title       :string(255)
+#  summary     :string(255)
+#  description :text(65535)      not null
+#  cover_id    :string(255)
+#  category_id :integer
+#  is_open     :boolean
+#  author_id   :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+
 FactoryGirl.define do
   factory :template do
-    title "MyString"
-    summary "MyString"
-    description "MyText"
-    cover_id 1
-    category_id 1
-    is_open false
-    author_id 1
+    subject { FFaker::Book.title }
+    title { FFaker::Book.title }
+    summary { FFaker::Book.genre }
+    description { FFaker::Book.description }
+    cover_id { FFaker::Book.cover}
+    is_open { FFaker::Boolean.random }
+    association :author, factory: :author
+    association :category, factory: :category
   end
 end

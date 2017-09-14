@@ -80,7 +80,8 @@ RSpec.describe Author, type: :model do
     # ペンネームが重複していれば無効
     it "with a duplicate pen_name" do
       create(:author, pen_name: "inomar14")
-      author = build(:author, pen_name: "inomar14")      author.valid?
+      author = build(:author, pen_name: "inomar14")
+			author.valid?
       expect(author.errors[:pen_name]).to include("はすでに存在します")
     end
 
