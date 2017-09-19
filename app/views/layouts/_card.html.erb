@@ -3,7 +3,7 @@
    <div class="ui grey right ribbon label">
      <%= page.category.name %>
    </div>
-    <img src="https://pbs.twimg.com/profile_images/647691403942694912/mkrnClYB.jpg">
+   <%= attachment_image_tag(page, :cover, :fill, 200, 100, format: 'jpg') %>
   <% end %>
   <div class="content">
     <a href="#" class="header"><%= page.title %></a>

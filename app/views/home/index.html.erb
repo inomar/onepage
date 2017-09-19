@@ -9,14 +9,12 @@
         </div>
         <p><%= template.description %></p>
         <div class="ui divider"></div>
-        <div class="ui link cards">
+        <div class="ui link three stackable cards">
           <% template.pages.each do |page| %>
-            <%= render 'layouts/card', page: page %>
+              <%= render 'layouts/card', page: page %>
           <% end %>
         </div>
       </div>
-      <div class="ui bottom attached grey button">
-        この縛りに挑戦！！
-      </div>
+      <%= link_to 'この縛りに挑戦！！', template_duplicate_path(template), class: 'ui bottom attached grey button' %>
     </div>
 <% end %>

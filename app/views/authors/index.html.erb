@@ -1,4 +1,23 @@
-<% @authors.each do | author | %>
-  <%= author.name %>
-  <%= attachment_image_tag(author, :image, :fill, 100, 100, format: 'jpg') %>
-<% end %>
+<div class="ui items">
+  <% @authors.each do | author | %>
+      <div class="item">
+        <%= attachment_image_tag(author, :image, :fill, 100, 100, format: 'jpg', class: 'ui Tiny circular image') %>
+        <div class="middle aligned content">
+          <div class="header">
+            <%= link_to author_path(author) do %>
+                <%= author.pen_name %>
+            <% end %>
+          </div>
+          <div class="description">
+            <p><%= author.description %></p>
+          </div>
+          <div class="extra">
+            <div class="ui right floated button">
+              button
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
