@@ -10,7 +10,12 @@ Rails.application.routes.draw do
    }
    resources :authors, :only => [:index, :show]
 
-  resources :pages
+  resources :pages do
+		member do
+			post 'add', to: 'favorites#create'
+			post 'delete', to: 'favorites#delete'
+		end
+	end
 	get 'pages/:id/preview', to: 'pages#preview', as: 'page_preview'
 
   resources :templates

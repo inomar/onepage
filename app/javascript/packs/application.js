@@ -9,3 +9,6 @@
 
 console.log('Hello World from Webpacker')
 $('.js-authorMenu .item').tab();
+$(document).on('click', '.js-favorite', function () {
+
+})

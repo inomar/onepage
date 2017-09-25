@@ -24,4 +24,8 @@ class Page < ApplicationRecord
   attachment :cover
   acts_as_taggable_on :tags
   belongs_to :category
+
+  def favorite_author(author_id)
+    favorites.find_by(author_id: author_id)
+  end
 end
