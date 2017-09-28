@@ -22,4 +22,11 @@ class Page < ApplicationRecord
   attachment :cover
   acts_as_taggable_on :tags
   belongs_to :category
+
+  validates :title, presence: true, length: { maximum: 100 }
+  validates :summary, presence: true, length: { maximum: 100 }
+  # TODO: 400文字制限なくそうかな？
+  validates :story, presence: true, length: { maximum: 10000 }
+  validates :author_id, presence: true
+  validates :category_id, presence: true
 end
