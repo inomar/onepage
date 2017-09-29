@@ -39,4 +39,8 @@ class Template < ApplicationRecord
 		}
 	end
 
+	def self.is_open_templates
+		where(is_open: true)
+	end
+
 end

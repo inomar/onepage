@@ -93,4 +93,24 @@ RSpec.describe Template, type: :model do
 		end
 
 	end
+
+	describe 'is open' do
+		before do
+			@h_template = create(:template, title: 'ホラー' , is_open: true)
+			@l_template = create(:template, title: 'ラブロマンス', is_open: false)
+			@m_template = create(:template, title: 'ミステリー', is_open: false)
+		end
+
+		context 'with matching templates' do
+			it 'returns open templates' do
+				expect(Template.is_open_templates).to eq [@h_template]
+			end
+		end
+
+		context 'with no matching templates' do
+			it 'omits results that do not match' do
+				expect(Template.is_open_templates).to_not eq [@l_template, @m_template]
+			end
+		end
+	end
 end
