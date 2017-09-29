@@ -68,6 +68,29 @@ RSpec.describe Template, type: :model do
 			template.valid?
 			expect(template.errors[:subject]).to include("は#{max}文字以内で入力してください")
 		end
+	end
+
+	describe 'inherit template' do
+		before do
+			@other_template = {title: 'タイトル', summary: 'サマリー', cover_id: 'cover_id', category_id: 1}
+		end
+		context 'with matching object' do
+			it 'returns a page object' do
+				template = build(:template,
+												 title: 'タイトル',
+												 summary: 'サマリー',
+												 cover_id: 'cover_id',
+												 category_id: 1)
+				expect(template.inherit_template).to eq @other_template
+			end
+		end
+
+		context 'with no matching object' do
+			it 'omits results that do not match' do
+				template = build(:template, title: 'タイトル2')
+				expect(template.inherit_template).to_not eq @other_template
+			end
+		end
 
 	end
 end

@@ -3,7 +3,7 @@ class TemplatesController < ApplicationController
   before_action :set_template, only: %i(show edit update destroy)
 
 	def index
-		@templates = Template.all
+		@templates = Template.page params[:page]
 	end
 
 	def show
