@@ -1,6 +1,12 @@
 ---
 ja:
   activerecord:
+    attributes:
+      template:
+        subject: お題
+        description: お題内容
+        title: タイトル
+        summary: あらすじ
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

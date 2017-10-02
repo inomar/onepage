@@ -20,6 +20,7 @@
     <%= text_field_tag 'page[tag_list]', @template.tag_list.join(',') %>
   </div>
   <div class="field">
+    <%= f.label 'カテゴリー' %>
     <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui fluid search dropdown') %>
   </div>
   <div>
