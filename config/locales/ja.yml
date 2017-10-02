@@ -7,6 +7,16 @@ ja:
         description: お題内容
         title: タイトル
         summary: あらすじ
+      page:
+        title: タイトル
+        summary: あらすじ
+        story: 本編
+        cover_id: 表紙
+      author:
+        email: メールアドレス
+        name: 名前
+        pen_name: ペンネーム
+        description: 自己紹介
     errors:
       messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"

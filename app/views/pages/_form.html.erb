@@ -8,11 +8,12 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label 'カテゴリー' %>
     <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui fluid search dropdown', multiple: true, prompt: '') %>
   </div>
 
   <div class="field">
-    <%= f.label 'page[tag_list]' %>
+    <%= f.label 'タグ' %>
     <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form-control' %>
   </div>
 
