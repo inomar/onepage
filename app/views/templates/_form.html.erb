@@ -1,32 +1,39 @@
-<div class="form-group">
-  <%= f.label :subject %>
-  <%= f.text_field :subject, class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.label :description %>
-  <%= f.text_area :description, class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.label :title %>
-  <%= f.text_field :title, class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.label :summary %>
-  <%= f.text_area :summary, class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.label 'page[tag_list]' %>
-  <%= text_field_tag 'page[tag_list]', @template.tag_list.join(','), class: 'form-control' %>
-</div>
-<div class="form-group">
-  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
-</div>
-<div>
-  <%= f.label :cover %><br>
-  <%= f.attachment_field :cover %>
+<div class="ui form">
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_area :summary %>
+  </div>
+  <div class="field">
+    <%= f.label 'page[tag_list]' %>
+    <%= text_field_tag 'page[tag_list]', @template.tag_list.join(',') %>
+  </div>
+  <div class="field">
+    <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui fluid search dropdown') %>
+  </div>
+  <div>
+    <%= f.label :cover, class: 'ui button' do %>
+        画像を選択
+    <%= f.attachment_field :cover, style: 'display:none;' %>
+    <% end %>
+  </div>
 </div>
 
+<%= f.submit '下書き保存', name: 'draft', class: 'ui button' %>
+<%= f.submit '公開', class: 'ui button' %>
+<%= link_to '削除',  @template, method: :delete, data: { confirm: '本当に削除してもいいですか？' }, class: 'ui button' %>
 
-<%= f.submit '下書き保存', name: 'draft', class: 'btn btn-primary' %>
-<%= f.submit '公開', class: 'btn btn-primary' %>
-<%= link_to '削除',  @template, method: :delete, data: { confirm: '本当に削除してもいいですか？' } %>
+<script type="text/javascript" charset="utf-8">
+    $('select').dropdown();
+</script>
