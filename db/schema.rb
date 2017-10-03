@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20170913112100) do
     t.text "description", null: false
     t.string "cover_id"
     t.integer "category_id"
-    t.boolean "is_open"
+    t.boolean "is_open", default: false
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

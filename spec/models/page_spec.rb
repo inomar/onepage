@@ -25,11 +25,12 @@ RSpec.describe Page, type: :model do
 
 	context 'is valid' do
 		it 'with a title, summary, story and author' do
+			author = create(:author)
 			page = build(:page,
 				title: 'タイトル',
 				summary: 'サマリー',
 				story: 'ストーリー',
-				author_id: 1)
+				author: author)
 			expect(page).to be_valid
 		end
 	end

@@ -19,8 +19,12 @@ FactoryGirl.define do
     summary { FFaker::Book.genre }
     description { FFaker::Book.description }
     cover_id { FFaker::Book.cover}
-    is_open { FFaker::Boolean.random }
+    is_open false
     association :author, factory: :author
     association :category, factory: :category
-  end
+
+    factory :invalid_template do
+      subject nil
+    end
+	end
 end

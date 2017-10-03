@@ -2,6 +2,10 @@ development: &development
   twitter:
     key: iUDnPifEFAQqD18GBQMDuDwj9
     secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
+test: &test
+  twitter:
+    key: iUDnPifEFAQqD18GBQMDuDwj9
+    secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
 staging: &staging
   twitter:
       key: iUDnPifEFAQqD18GBQMDuDwj9
