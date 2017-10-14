@@ -1,27 +1,28 @@
 <div class="card">
   <%= link_to page_path(page), class: 'ui fluid image' do %>
-   <div class="ui grey right ribbon label">
-     <%= page.category.name %>
-   </div>
-   <%= attachment_image_tag(page, :cover, :fill, 200, 100, format: 'jpg') %>
+   <%# attachment_image_tag(page, :cover, :fill, 200, 100, format: 'jpg') %>
   <% end %>
   <div class="content">
-    <a href="#" class="header"><%= page.title %></a>
+    <%= link_to page.title, page_path(page), class: 'header' %>
     <div class="meta">
-      <a>Friends</a>
+      <%= link_to page.category.name, '#' %>
     </div>
     <span>
      <%= attachment_image_tag(page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
-      <span>Username</span>
+     <span><%= page.author.pen_name %></span>
     </span>
-
     <div class="description">
-      Matthew is an interior designer living in New York.
+      <%= page.summary %>
+    </div>
+    <div>
+      <% page.tags.each do |tag| %>
+        <%= link_to tag, '#', class: 'ui label' %>
+      <% end %>
     </div>
   </div>
   <div class="extra content">
       <span class="right floated">
-        Joined in 2013
+        <%= l page.created_at, formats: :midium %>
       </span>
     <span>
         <i class="comment outline icon"></i>
