@@ -25,8 +25,16 @@
         <%= l page.created_at, formats: :midium %>
       </span>
     <span>
-        <i class="comment outline icon"></i>
-        75 Friends
-      </span>
+    <% if page.favorite_author(current_author.id) %>
+      <%= link_to delete_page_path(page.id), remote: true, method: :post do %>
+        <i class="heart icon"></i>
+      <% end %>
+    <% else %>
+      <%= link_to add_page_path(page.id), remote: true, method: :post do %>
+        <i class="empty heart icon"></i>
+      <% end %>
+    <% end %>
+    <%= page.favorites.count %>
+    </span>
   </div>
 </div>

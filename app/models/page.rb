@@ -17,6 +17,8 @@
 
 class Page < ApplicationRecord
   PAGE_ATTRIBUTES = %i(title summary story cover tag_list category_id template_id).freeze
+  has_many :favorites
+  has_many :authors, through: :favorites
   belongs_to :template, optional: true
   belongs_to :author
   attachment :cover
@@ -29,4 +31,8 @@ class Page < ApplicationRecord
   validates :story, presence: true, length: { maximum: 10000 }
   validates :author_id, presence: true
   validates :category_id, presence: true
+
+  def favorite_author(author_id)
+    favorites.find_by(author_id: author_id)
+  end
 end
