@@ -5,7 +5,7 @@
   <div class="content">
     <%= link_to page.title, page_path(page), class: 'header' %>
     <div class="meta">
-      <%= link_to page.category.name, '#' %>
+      <%= link_to page.category.name, pages_path(category_id: page.category.id) %>
     </div>
     <span>
      <%= attachment_image_tag(page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>

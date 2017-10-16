@@ -11,4 +11,6 @@
 class Category < ApplicationRecord
 	has_many :pages
 	has_many :templates
+
+	scope :with_pages, -> { joins(:pages)}
 end

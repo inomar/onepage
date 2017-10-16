@@ -32,7 +32,10 @@ class Page < ApplicationRecord
   validates :author_id, presence: true
   validates :category_id, presence: true
 
+	scope :search_category, -> (category_id){ where(category: category_id) }
+
   def favorite_author(author_id)
     favorites.find_by(author_id: author_id)
-  end
+	end
+
 end

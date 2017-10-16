@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_action :set_page, only: %i(show edit update destroy preview)
 
   def index
-    @pages = Page.page(params[:page])
+    @pages = Page.search_category(params[:category_id])
   end
 
   def show
