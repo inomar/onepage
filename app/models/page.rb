@@ -33,6 +33,7 @@ class Page < ApplicationRecord
   validates :category_id, presence: true
 
 	scope :search_category, -> (category_id){ where(category: category_id) }
+  scope :search_tag, -> { tag_counts_on(:tags).order('count DESC') }
 
   def favorite_author(author_id)
     favorites.find_by(author_id: author_id)

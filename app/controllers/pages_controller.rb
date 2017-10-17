@@ -3,7 +3,8 @@ class PagesController < ApplicationController
   before_action :set_page, only: %i(show edit update destroy preview)
 
   def index
-    @pages = Page.search_category(params[:category_id])
+    @pages = Page.all
+    @tags = Page.search_tag
   end
 
   def show
@@ -45,6 +46,17 @@ class PagesController < ApplicationController
     @page.delete
     # TODO: success message
     redirect_to pages_path
+  end
+
+  def tag_cloud
+    @tags = Page.search_tag
+  end
+
+  def tag
+    puts params[:name]
+    @pages = Page.all
+    @tags = Page.search_tag
+    render 'index'
   end
 
   private

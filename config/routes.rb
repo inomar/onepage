@@ -8,14 +8,17 @@ Rails.application.routes.draw do
     :passwords     => "authors/passwords",
     :omniauth_callbacks => "authors/omniauth_callbacks",
    }
-   resources :authors, :only => [:index, :show]
+  resources :authors, :only => [:index, :show]
 
   resources :pages do
-		member do
-			post 'add', to: 'favorites#create'
-			post 'delete', to: 'favorites#delete'
-		end
-	end
+    member do
+      post 'add', to: 'favorites#create'
+      post 'delete', to: 'favorites#delete'
+    end
+    collection do
+      get 'tag'
+    end
+  end
 	get 'pages/:id/preview', to: 'pages#preview', as: 'page_preview'
 
   resources :templates

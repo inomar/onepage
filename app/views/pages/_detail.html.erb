@@ -1,12 +1,24 @@
-<h1><%= @page.title %></h1>
-<div>
-  <%= @page.story %>
+<div class="ui items">
+  <div class="item">
+    <div class="content">
+      <h1><%= @page.title %></h1>
+      <div class="meta">
+        <%= link_to @page.category.name, pages_path(category_id: @page.category.id), class: 'ui basic label' %>
+      </div>
+      <div class="description">
+        <%== simple_format(h(@page.story)) %>
+      </div>
+      <div class="extra">
+        <% @page.tags.each do |tag| %>
+            <%= link_to tag, '#', class: 'ui label' %>
+        <% end %>
+        <div>
+          <%= attachment_image_tag(@page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+          <span><%= @page.author.pen_name %></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-  <% @page.tag_list.each do |tag| %>
-      <span><%= tag %></span>
-  <% end %>
-</div>
-<div>
-  <%= @page.category.name %>
-</div>
+
+
