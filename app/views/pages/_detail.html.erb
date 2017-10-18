@@ -1,20 +1,40 @@
 <div class="ui items">
   <div class="item">
     <div class="content">
-      <h1><%= @page.title %></h1>
       <div class="meta">
-        <%= link_to @page.category.name, pages_path(category_id: @page.category.id), class: 'ui basic label' %>
-      </div>
-      <div class="description">
-        <%== simple_format(h(@page.story)) %>
-      </div>
-      <div class="extra">
-        <% @page.tags.each do |tag| %>
-            <%= link_to tag, '#', class: 'ui label' %>
+        <%= link_to author_path(@page.author) do %>
+            <%= attachment_image_tag(@page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+            <span><%= @page.author.pen_name %></span>
         <% end %>
-        <div>
-          <%= attachment_image_tag(@page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
-          <span><%= @page.author.pen_name %></span>
+      </div>
+      <div class="header">
+        <h1><%= @page.title %></h1>
+      </div>
+      <p class="meta"><%= l @page.created_at, format: :short %></p>
+      <div class="ui grid">
+        <div class="column">
+          <div class="meta">
+            <span>カテゴリー: <%= link_to @page.category.name, pages_path(category_id: @page.category.id) %></span>
+          </div>
+          <div class="meta">
+            <div class="ui labels">
+              <% @page.tags.each do |tag| %>
+                  <%= link_to '#', class: 'ui basic teal label' do %>
+                      <i class="hashtag icon"></i><%= tag %>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-summary">
+        <%= @page.summary %>
+      </div>
+      <div class="ui grid">
+        <div class="column">
+          <div class="column">
+            <%= simple_format(h @page.story) %>
+          </div>
         </div>
       </div>
     </div>

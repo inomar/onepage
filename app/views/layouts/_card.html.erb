@@ -6,35 +6,39 @@
     <%= link_to page.title, page_path(page), class: 'header' %>
     <div class="meta">
       <%= link_to page.category.name, pages_path(category_id: page.category.id) %>
+      <span class="right floated time">
+        <%= l page.created_at, format: :short %>
+      </span>
     </div>
-    <span>
-     <%= attachment_image_tag(page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
-     <span><%= page.author.pen_name %></span>
-    </span>
     <div class="description">
-      <%= page.summary %>
-    </div>
-    <div>
-      <% page.tags.each do |tag| %>
-        <%= link_to tag, '#', class: 'ui label' %>
-      <% end %>
+      <p><%= page.summary %></p>
+      <div class="ui tiny labels">
+        <% page.tags.each.with_index do |tag, index| %>
+          <% break if index > 2 %>
+          <%= link_to '#', class: 'ui label' do %>
+            <i class="hashtag icon"></i><%= tag %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="extra content">
-      <span class="right floated">
-        <%= l page.created_at, formats: :midium %>
-      </span>
-    <span>
-    <% if page.favorite_author(current_author.id) %>
-      <%= link_to delete_page_path(page.id), remote: true, method: :post do %>
-        <i class="heart icon"></i>
+    <div class="left floated">
+      <% if page.favorite_author(current_author.id) %>
+        <%= link_to delete_page_path(page.id), remote: true, method: :post do %>
+          <i class="circular red heart icon"></i><%= page.favorites.count %>
+        <% end %>
+      <% else %>
+        <%= link_to add_page_path(page.id), remote: true, method: :post do %>
+          <i class="circular empty red heart icon"></i><%= page.favorites.count %>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to add_page_path(page.id), remote: true, method: :post do %>
-        <i class="empty heart icon"></i>
+    </div>
+    <div class="right floated author">
+      <%= link_to author_path page.author do %>
+        <%= attachment_image_tag(page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+        <%= page.author.pen_name %>
       <% end %>
-    <% end %>
-    <%= page.favorites.count %>
-    </span>
+    </div>
   </div>
 </div>

@@ -28,7 +28,7 @@ class Author < ApplicationRecord
   has_many :pages, dependent: :destroy
   has_many :templates, dependent: :destroy
   has_many :favorites
-  has_many :pages, through: :favorites
+  #has_many :pages, through: :favorites
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
