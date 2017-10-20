@@ -10,32 +10,41 @@
       <div class="header">
         <h1><%= @page.title %></h1>
       </div>
-      <p class="meta"><%= l @page.created_at, format: :short %></p>
-      <div class="ui grid">
-        <div class="column">
-          <div class="meta">
-            <span>カテゴリー: <%= link_to @page.category.name, pages_path(category_id: @page.category.id) %></span>
-          </div>
-          <div class="meta">
-            <div class="ui labels">
-              <% @page.tags.each do |tag| %>
-                  <%= link_to '#', class: 'ui basic teal label' do %>
-                      <i class="hashtag icon"></i><%= tag %>
-                  <% end %>
-              <% end %>
-            </div>
-          </div>
+      <p class="meta">
+        <%= l @page.created_at, format: :short %>
+      </p>
+      <div class="ui hidden divider"></div>
+      <div class="meta">
+        <span>カテゴリー: <%= link_to @page.category.name, pages_path(category_id: @page.category.id) %></span>
+      </div>
+      <div class="meta">
+        <div class="ui labels">
+          <% @page.tags.each do |tag| %>
+            <%= link_to '#', class: 'ui basic teal label' do %>
+              <i class="hashtag icon"></i><%= tag %>
+            <% end %>
+          <% end %>
         </div>
       </div>
+      <div class="ui hidden divider"></div>
       <div class="p-summary">
-        <%= @page.summary %>
+        <%= simple_format(h @page.summary) %>
       </div>
-      <div class="ui grid">
-        <div class="column">
-          <div class="column">
-            <%= simple_format(h @page.story) %>
-          </div>
-        </div>
+      <div class="ui hidden divider"></div>
+      <div>
+        <%= simple_format(h @page.story) %>
+      </div>
+      <div class="ui hidden divider"></div>
+      <div>
+        <button class="ui large circular facebook icon button">
+          <i class="facebook icon"></i>
+        </button>
+        <button class="ui large circular twitter icon button">
+          <i class="twitter icon"></i>
+        </button>
+        <%= link_to '#', class:'' do %>
+          <i class="large circular link empty red heart icon"></i> いいね
+        <% end %>
       </div>
     </div>
   </div>

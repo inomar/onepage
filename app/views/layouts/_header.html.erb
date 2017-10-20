@@ -1,10 +1,13 @@
 <div class="ui teal inverted secondary menu">
   <div class="ui container">
+    <a class="toc item">
+      <i class="sidebar icon"></i>
+    </a>
     <p class="item">One page</p>
     <%= link_to 'OnePageとは？', '/', class: 'item' %>
     <%= link_to 'お題', templates_path, class: 'item' %>
     <%= link_to '作品', pages_path, class: 'item' %>
-    <div class="right menu">
+    <div class="right item">
       <%= link_to '作品を投稿する', new_page_path, class: 'ui inverted basic button item' %>
       <% if author_signed_in? %>
           <div class="ui dropdown item">
