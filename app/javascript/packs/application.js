@@ -9,6 +9,7 @@
 
 console.log('Hello World from Webpacker')
 $('.js-authorMenu .item').tab();
-$(document).on('click', '.js-favorite', function () {
 
+$(document).on('click', '.js-menu', () => {
+  $('.js-sidebar').sidebar('toggle');
 })
