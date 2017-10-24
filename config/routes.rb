@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     collection do
       get 'tag'
+			get 'category'
     end
   end
 	get 'pages/:id/preview', to: 'pages#preview', as: 'page_preview'

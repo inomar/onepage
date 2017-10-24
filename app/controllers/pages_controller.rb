@@ -1,10 +1,10 @@
 class PagesController < ApplicationController
   before_action :authenticate_author!, only: [:new, :create, :edit, :update]
   before_action :set_page, only: %i(show edit update destroy preview)
+  before_action :tag_cloud, only: %i(index tag category)
 
   def index
     @pages = Page.all
-    @tags = Page.search_tag
   end
 
   def show
@@ -47,13 +47,16 @@ class PagesController < ApplicationController
   end
 
   def tag_cloud
-    @tags = Page.search_tag
+    @tags = Page.tag_count
   end
 
   def tag
-    puts params[:name]
-    @pages = Page.all
-    @tags = Page.search_tag
+    @pages = Page.search_tag(params[:name])
+    render 'index'
+  end
+
+  def category
+    @pages = Page.search_category(params[:name])
     render 'index'
   end
 

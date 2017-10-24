@@ -1,8 +1,10 @@
-<div class="ui link three stackable cards">
-  <% @pages.each do | page | %>
-    <%= render 'layouts/card', page: page %>
+<div class="ui container">
+  <div class="ui link three stackable cards">
+    <% @pages.each do | page | %>
+        <%= render 'layouts/card', page: page %>
+    <% end %>
+  </div>
+  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+      <%= link_to tag.name, tag_pages_path(name: tag.name), class: css_class %>
   <% end %>
 </div>
-<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-    <%= link_to tag.name, {action: :tag, name: tag.name}, class: css_class %>
-<% end %>

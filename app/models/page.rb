@@ -32,8 +32,12 @@ class Page < ApplicationRecord
   validates :author_id, presence: true
   validates :category_id, presence: true
 
-	scope :search_category, -> (category_id){ where(category: category_id) }
-  scope :search_tag, -> { tag_counts_on(:tags).order('count DESC') }
+  # http://tackeyy.com/blog/posts/how-to-fix-acts-as-taggable-on-bug-on-rails-5_1_3
+  scope :by_join_date, -> { order('created_at DESC') }
+  scope :search_category, -> (category_name){ where(category_id: Category.by_name(category_name).id) }
+  scope :search_tag, -> (tag_name){ tagged_with(tag_name) }
+  scope :tag_count, -> { tag_counts_on(:tags).order('count DESC') }
+
 
   def favorite_author(author_id)
     favorites.find_by(author_id: author_id)
