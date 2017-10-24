@@ -13,3 +13,4 @@ $('.js-authorMenu .item').tab();
 $(document).on('click', '.js-menu', () => {
   $('.js-sidebar').sidebar('toggle');
 })
+$('.dropdown').dropdown();

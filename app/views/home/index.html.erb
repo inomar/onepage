@@ -1,3 +1,28 @@
+<div class="ui inverted vertical masthead segment">
+  <div class="ui container">
+    <div class="ui tiny secondary inverted menu">
+      <div class="right menu">
+        <% if author_signed_in? %>
+        <%= link_to 'お題を投稿', new_template_path, class: 'ui tiny inverted basic button' %>
+        <%= link_to '小説を投稿', new_page_path, class: 'ui tiny inverted basic button' %>
+        <div class="ui dropdown">
+          <a class="js-dropdown-btn">
+            <%= attachment_image_tag(current_author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+            <div class="menu">
+              <%= link_to 'プロフィール', author_path(current_author), class: 'item' %>
+              <%= link_to 'ログアウト', '#', class: 'item' %>
+            </div>
+          </a>
+        </div>
+        <% else %>
+        <%= link_to '新規登録', new_author_registration_path, class: 'ui tiny inverted basic button' %>
+        <%= link_to 'ログイン', new_author_session_path, class: 'ui tiny inverted basic button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui container">
 <% @templates.each do |template| %>
     <div class="ui segments">
       <div class="ui grey segment">
@@ -18,3 +43,4 @@
       <%= link_to 'この縛りに挑戦！！', template_duplicate_path(template), class: 'ui bottom attached grey button' %>
     </div>
 <% end %>
+</div>

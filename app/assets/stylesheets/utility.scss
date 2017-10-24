@@ -23,3 +23,24 @@ $gray-medium-light: #eaeaea;
 .css3 { font-size: 1.4em; }
 .css4 { font-size: 1.6em; }
 
+.ui.inverted.segment {
+  background-image: url(https://i.ytimg.com/vi/r8GuIF9f_HM/maxresdefault.jpg);
+}
+.masthead.segment {
+  min-height: 185px;
+  padding: .25em 0em;
+}
+
+.hidden.item {
+  display: none;
+}
+.ui.secondary.inverted.pointing.menu .hidden.item {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .ui.secondary.inverted.pointing.menu .hidden.item {
+    display: block;
+  }
+}
+
