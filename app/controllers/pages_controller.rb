@@ -8,12 +8,10 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find(params[:id])
   end
 
   def new
     @page = Page.new
-    # @categories = Category.all
   end
 
   def create

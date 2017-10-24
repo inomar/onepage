@@ -10,7 +10,7 @@
             <%= attachment_image_tag(current_author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
             <div class="menu">
               <%= link_to 'プロフィール', author_path(current_author), class: 'item' %>
-              <%= link_to 'ログアウト', '#', class: 'item' %>
+              <%= link_to 'ログアウト', destroy_author_session_path, method: :delete, class: 'item' %>
             </div>
           </a>
         </div>
