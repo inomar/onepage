@@ -2,29 +2,42 @@
   <%= f.hidden_field :template_id, value: @page.template_id %>
 <% end %>
 
-<div class="ui form">
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<div class="ui big form">
+  <div class="ui secondary pointing menu js-postMenu">
+    <a class="item active" data-tab="main">本編 </a>
+    <a class="item" data-tab="option">オプション </a>
+    <div class="right menu">
+      <span class="item">
+        <span class="ui basic blue label">公開中</span>
+      </span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label 'カテゴリー' %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui fluid search dropdown', multiple: true, prompt: '') %>
+  <div class="ui right floated tiny buttons">
+    <%= f.submit '下書き保存', name: 'draft', class: 'ui basic blue button' %>
+    <%= f.submit '公開', class: 'ui blue button' %>
   </div>
-
-  <div class="field">
-    <%= f.label 'タグ' %>
-    <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form-control' %>
+  <div class="ui tab active" data-tab="main">
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form__input', placeholder: 'タイトルを書く'%>
+    </div>
+    <div class="field">
+      <%= f.text_area :story, class: 'form__textarea', placeholder: '小説を書く...' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :summary %>
-    <%= f.text_area :summary %>
-  </div>
-
-  <div class="field">
-    <%= f.label :story %>
-    <%= f.text_area :story %>
+  <div class="ui tab" data-tab="option">
+    <div class="field">
+      <%= f.label 'カテゴリー' %>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui fluid search dropdown', multiple: true, prompt: '選択してください') %>
+    </div>
+    <div class="field">
+      <%= f.label 'タグ' %>
+      <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form__input', placeholder: 'タグを書く...' %>
+    </div>
+    <div class="field">
+      <%= f.label :summary %>
+      <%= f.text_area :summary %>
+    </div>
   </div>
 
     <%= f.label :cover, class: 'ui button' do %>
@@ -32,9 +45,6 @@
         <%= f.attachment_field :cover, style: 'display:none;' %>
     <% end %>
 
-
-  <%= f.submit '下書き保存', name: 'draft', class: 'ui button' %>
-  <%= f.submit '公開', class: 'ui button' %>
   <%= f.submit 'プレビュー', name: 'preview', class: 'ui button', formtarget: 'blank' %>
   <%= link_to '削除',  @page, method: :delete, data: { confirm: 'You sure?' }, class: 'ui button' %>
 

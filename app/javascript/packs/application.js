@@ -14,3 +14,5 @@ $(document).on('click', '.js-menu', () => {
   $('.js-sidebar').sidebar('toggle');
 })
 $('.dropdown').dropdown();
+$('.js-postMenu .item').tab();
+

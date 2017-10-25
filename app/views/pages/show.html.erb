@@ -1,8 +1,60 @@
-<div class="ui piled very padded segment">
-<%= render 'pages/detail' %>
-<%= @page.author.pen_name %>
-<% if current_author %>
-  <%= '下書き' if !@page.is_open %>
-  <%= link_to '編集', edit_page_path(@page) %>
-<% end %>
+<div class="ui container">
+  <div class="ui piled very padded segment">
+    <div class="ui items">
+      <div class="item">
+        <div class="content">
+          <div class="meta">
+            <%= link_to author_path(@page.author) do %>
+                <%= attachment_image_tag(@page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+                <span><%= @page.author.pen_name %></span>
+            <% end %>
+          </div>
+          <div class="header">
+            <h1><%= @page.title %></h1>
+          </div>
+          <p class="meta">
+            <%= l @page.created_at, format: :short %>
+          </p>
+          <div class="ui hidden divider"></div>
+          <div class="meta">
+            <span>カテゴリー: <%= link_to @page.category.name, category_pages_path(name: @page.category.name) %></span>
+          </div>
+          <div class="meta">
+            <div class="ui labels">
+              <% @page.tags.each do |tag| %>
+                  <%= link_to tag_pages_path(name: tag.name), class: 'ui basic teal label' do %>
+                      <i class="hashtag icon"></i><%= tag %>
+                  <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div class="ui hidden divider"></div>
+          <div class="p-summary">
+            <%= simple_format(h @page.summary) %>
+          </div>
+          <div class="ui hidden divider"></div>
+          <div>
+            <%= simple_format(h @page.story) %>
+          </div>
+          <div class="ui hidden divider"></div>
+          <div>
+            <button class="ui large circular facebook icon button">
+              <i class="facebook icon"></i>
+            </button>
+            <button class="ui large circular twitter icon button">
+              <i class="twitter icon"></i>
+            </button>
+            <%= link_to '#', class:'' do %>
+                <i class="large circular link empty red heart icon"></i> いいね
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= @page.author.pen_name %>
+    <% if current_author %>
+        <%= '下書き' if !@page.is_open %>
+        <%= link_to '編集', edit_page_path(@page) %>
+    <% end %>
+  </div>
 </div>

@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   before_action :tag_cloud, only: %i(index tag category)
 
   def index
-    @pages = Page.all
+    @pages = Page.page(params[:page])
   end
 
   def show
@@ -51,12 +51,12 @@ class PagesController < ApplicationController
   end
 
   def tag
-    @pages = Page.search_tag(params[:name])
+    @pages = Page.search_tag(params[:name]).page(params[:page])
     render 'index'
   end
 
   def category
-    @pages = Page.search_category(params[:name])
+    @pages = Page.search_category(params[:name]).page(params[:page])
     render 'index'
   end
 

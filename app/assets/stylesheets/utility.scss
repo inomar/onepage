@@ -7,6 +7,13 @@ $gray-medium-light: #eaeaea;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+
+@mixin input_style {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+}
 /* miscellaneous */
 
 .debug_dump {
@@ -16,6 +23,33 @@ $gray-medium-light: #eaeaea;
   margin-top: 45px;
   background: $gray-medium-light;
   @include box_sizing;
+}
+
+.ui.form {
+  & input {
+    &.form {
+      &__input {
+        @include input_style;
+        &:focus {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+  & textarea {
+    &.form {
+      &__textarea {
+        border: none;
+      }
+    }
+  }
+  & .ui {
+    &.selection {
+      &.dropdown {
+        @include input_style;
+      }
+    }
+  }
 }
 
 .css1 { font-size: 1.0em; }

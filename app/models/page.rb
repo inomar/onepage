@@ -25,6 +25,8 @@ class Page < ApplicationRecord
   acts_as_taggable_on :tags
   belongs_to :category
 
+  paginates_per 50
+
   validates :title, presence: true, length: { maximum: 100 }
   validates :summary, presence: true, length: { maximum: 100 }
   # TODO: 400文字制限なくそうかな？
@@ -35,7 +37,7 @@ class Page < ApplicationRecord
   # http://tackeyy.com/blog/posts/how-to-fix-acts-as-taggable-on-bug-on-rails-5_1_3
   scope :by_join_date, -> { order('created_at DESC') }
   scope :search_category, -> (category_name){ where(category_id: Category.by_name(category_name).id) }
-  scope :search_tag, -> (tag_name){ tagged_with(tag_name) }
+  scope :search_tag, -> (tag_name){ tagged_with([tag_name]) }
   scope :tag_count, -> { tag_counts_on(:tags).order('count DESC') }
 
 
