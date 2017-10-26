@@ -29,6 +29,7 @@ gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'maste
 
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem 'kaminari'
 

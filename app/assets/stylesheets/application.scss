@@ -3,6 +3,10 @@ $import-google-fonts: false;
 @import "foundation";
 @import 'semantic-ui';
 
+@import '../../../node_modules/tag-it/css/jquery.tagit';
+@import '../../../node_modules/tag-it/css/tagit.ui-zendesk';
+
 @import "layout";
 @import "object";
 @import "utility";
+

@@ -27,6 +27,9 @@ $gray-medium-light: #eaeaea;
 
 .ui.form {
   & input {
+    &.ui-widget-content {
+      border: none;
+    }
     &.form {
       &__input {
         @include input_style;
@@ -50,6 +53,11 @@ $gray-medium-light: #eaeaea;
       }
     }
   }
+}
+
+ul.tag-it {
+  border-color: rgba(34, 36, 38, 0.15);
+  @include input_style;
 }
 
 .css1 { font-size: 1.0em; }

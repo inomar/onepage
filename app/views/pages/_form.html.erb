@@ -8,7 +8,11 @@
     <a class="item" data-tab="option">オプション </a>
     <div class="right menu">
       <span class="item">
-        <span class="ui basic blue label">公開中</span>
+        <% if @page.is_open %>
+          <span class="ui basic blue label">公開中</span>
+        <% else %>
+          <span class="ui basic label">非公開</span>
+        <% end %>
       </span>
     </div>
   </div>
@@ -32,7 +36,9 @@
     </div>
     <div class="field">
       <%= f.label 'タグ' %>
-      <%= text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form__input', placeholder: 'タグを書く...' %>
+      <ul class="tag-it"></ul>
+      <%= hidden_field_tag 'tags', @page.tag_list, { class: 'js-tagHidden' } %>
+      <%# text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form__input', placeholder: 'タグを書く...' %>
     </div>
     <div class="field">
       <%= f.label :summary %>
@@ -52,6 +58,4 @@
 
 </div>
 
-<script type="text/javascript" charset="utf-8">
-$('select').dropdown();
-</script>
+<%= javascript_pack_tag 'page' %>

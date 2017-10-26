@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 // Loads all Semantic javascripts
 //= require semantic-ui
 //= require_tree .
