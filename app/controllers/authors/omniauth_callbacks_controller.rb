@@ -4,6 +4,7 @@ class Authors::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   private
+
   def basic_action
     @omniauth = request.env['omniauth.auth']
     pp @omniauth
@@ -15,7 +16,7 @@ class Authors::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         @profile.save!
       end
       if current_author
-        raise "author is not identical" if current_author != @profile.author
+        raise 'author is not identical' if current_author != @profile.author
       else
         sign_in(:author, @profile.author)
       end
@@ -27,6 +28,6 @@ class Authors::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def set_author_socila_profile(profile)
     author = Author.new(name: profile.name)
     author.social_profiles << profile
-    return author
+    author
   end
 end

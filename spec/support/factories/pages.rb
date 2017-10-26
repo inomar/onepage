@@ -17,11 +17,11 @@ FactoryGirl.define do
     title { FFaker::Book.title }
     summary { FFaker::Book.genre }
     story { FFaker::Book.description }
-    cover_id { FFaker::Book.cover}
+    cover_id { FFaker::Book.cover }
     is_open { FFaker::Boolean.random }
-		template_id 1
-		association :author, factory: :author
-		association :category, factory: :category
-		association :template, factory: :template
+    template_id 1
+    association :author, factory: :author
+    association :category, factory: :category
+    association :template, factory: :template
   end
 end

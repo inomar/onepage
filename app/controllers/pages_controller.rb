@@ -1,14 +1,13 @@
 class PagesController < ApplicationController
-  before_action :authenticate_author!, only: [:new, :create, :edit, :update]
-  before_action :set_page, only: %i(show edit update destroy preview)
-  before_action :tag_cloud, only: %i(index tag category)
+  before_action :authenticate_author!, only: %i[new create edit update]
+  before_action :set_page, only: %i[show edit update destroy preview]
+  before_action :tag_cloud, only: %i[index tag category]
 
   def index
     @pages = Page.page(params[:page])
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @page = Page.new
@@ -22,8 +21,7 @@ class PagesController < ApplicationController
     redirect_to pages_path
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if params[:preview]
@@ -31,11 +29,11 @@ class PagesController < ApplicationController
       render :preview
       return
     end
-    if draft?
-      @page.is_open = false
-    else
-      @page.is_open = true
-    end
+    @page.is_open = if draft?
+                      false
+                    else
+                      true
+                    end
     @page.update(page_param)
     render 'edit'
   end

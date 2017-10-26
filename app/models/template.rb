@@ -16,31 +16,30 @@
 #
 
 class Template < ApplicationRecord
-	TEMPLATE_ATTRIBUTES = %i(subject description title summary story cover tag_list category_id).freeze
+  TEMPLATE_ATTRIBUTES = %i[subject description title summary story cover tag_list category_id].freeze
 
-	has_many :pages
-	belongs_to :author
-	attachment :cover
-	acts_as_taggable_on :tags
-	belongs_to :category, optional: true
+  has_many :pages
+  belongs_to :author
+  attachment :cover
+  acts_as_taggable_on :tags
+  belongs_to :category, optional: true
 
-	paginates_per 20
+  paginates_per 20
 
-	validates :subject,       presence: true, length: { maximum: 100 }
-	validates :description,   presence: true, length: { maximum: 500 }
-	validates :author_id,     presence: true
+  validates :subject,       presence: true, length: { maximum: 100 }
+  validates :description,   presence: true, length: { maximum: 500 }
+  validates :author_id,     presence: true
 
-	def inherit_template
-		{
-				title: self.title,
-				summary: self.summary,
-				cover_id: self.cover_id,
-				category_id: self.category_id
-		}
-	end
+  def inherit_template
+    {
+      title: title,
+      summary: summary,
+      cover_id: cover_id,
+      category_id: category_id
+    }
+  end
 
-	def self.is_open_templates
-		where(is_open: true)
-	end
-
+  def self.is_open_templates
+    where(is_open: true)
+  end
 end

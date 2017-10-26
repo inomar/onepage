@@ -1,41 +1,33 @@
 require 'rails_helper'
 
 RSpec.describe FavoritesController, type: :controller do
-	describe 'POST #create' do
-		context 'with params[:id]' do
-			it 'respond the :js'
-		end
+  describe 'POST #create' do
+    context 'with params[:id]' do
+      it 'respond the :js'
+    end
 
-		context	'be current author' do
+    context	'be current author' do
+    end
 
-		end
+    context 'without params[:id]' do
+      it 'respond the :js'
+    end
 
-		context 'without params[:id]' do
-			it 'respond the :js'
-		end
+    context	'not current author' do
+    end
+  end
 
-		context	'not current author' do
+  describe	'POST #delete' do
+    context 'with params[:id]' do
+    end
 
-		end
-	end
+    context 'be current author' do
+    end
 
-	describe	'POST #delete' do
-		context 'with params[:id]' do
+    context 'without params[:id]' do
+    end
 
-		end
-
-		context 'be current author' do
-
-		end
-
-		context 'without params[:id]' do
-
-		end
-
-		context 'not current author' do
-
-		end
-
-	end
-
+    context 'not current author' do
+    end
+  end
 end

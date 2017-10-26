@@ -42,26 +42,26 @@ class SocialProfile < ApplicationRecord
     case provider.to_s
     when 'twitter'
       self.url = info['urls']['Twitter']
-      self.other[:location] = info['location']
-      self.other[:website] = info['urls']['Website']
+      other[:location] = info['location']
+      other[:website] = info['urls']['Website']
     end
 
-    self.set_values_by_raw_info(omniauth['extra']['raw_info'])
+    set_values_by_raw_info(omniauth['extra']['raw_info'])
   end
 
   def set_values_by_raw_info(raw_info)
     case provider.to_s
     when 'twitter'
-      self.other[:followers_count] = raw_info['followers_count']
-      self.other[:friends_count] = raw_info['friends_count']
-      self.other[:statuses_count] = raw_info['statuses_count']
+      other[:followers_count] = raw_info['followers_count']
+      other[:friends_count] = raw_info['friends_count']
+      other[:statuses_count] = raw_info['statuses_count']
     end
 
     self.raw_info = raw_info.to_json
-    self.save!
+    save!
   end
 
   def self.select_provider(provider, uid)
-    self.where(provider: provider, uid: uid)
+    where(provider: provider, uid: uid)
   end
 end

@@ -1,4 +1,4 @@
-require "refile/s3"
+require 'refile/s3'
 
 aws = {
   access_key_id: ENV['access_key_id'],
@@ -6,5 +6,5 @@ aws = {
   region: ENV['region'],
   bucket: ENV['bucket']
 }
-Refile.cache = Refile::S3.new(prefix: "cache", **aws)
-Refile.store = Refile::S3.new(prefix: "store", **aws)
+Refile.cache = Refile::S3.new(prefix: 'cache', **aws)
+Refile.store = Refile::S3.new(prefix: 'store', **aws)

@@ -1,5 +1,4 @@
 class Authors::SessionsController < Devise::SessionsController
-
   def show
     super
   end

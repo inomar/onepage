@@ -1,3 +1,3 @@
 module PageHelper
-	include ActsAsTaggableOn::TagsHelper
+  include ActsAsTaggableOn::TagsHelper
 end

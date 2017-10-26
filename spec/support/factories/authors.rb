@@ -1,7 +1,7 @@
 require 'ffaker'
 
 FactoryGirl.define do
-	pass =  FFaker::Internet.password(8)
+  pass = FFaker::Internet.password(8)
   factory :author do
     name { FFaker::Name.name }
     pen_name { FFaker::Internet.user_name }
