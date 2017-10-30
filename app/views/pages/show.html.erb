@@ -53,7 +53,7 @@
     </div>
     <%= @page.author.pen_name %>
     <% if current_author %>
-        <%= '下書き' if !@page.is_open %>
+        <%= '下書き' if @page.draft? %>
         <%= link_to '編集', edit_page_path(@page) %>
     <% end %>
   </div>

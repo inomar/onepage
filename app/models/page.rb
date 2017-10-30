@@ -25,6 +25,8 @@ class Page < ApplicationRecord
   acts_as_taggable_on :tags
   belongs_to :category
 
+  enum status: { draft: 0, published: 1 }
+
   paginates_per 50
 
   validates :title, presence: true, length: { maximum: 100 }

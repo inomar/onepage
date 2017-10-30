@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "social_profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.bigint "author_id"
+  t.string "access_token"
+  t.string "provider"
+  t.string "access_secret"
+  t.string "uid"
+  t.string "name"
+  t.string "pen_name"
+  t.string "email"
+  t.string "url"
+  t.string "image_url"
+  t.string "description"
+  t.text "other"
+  t.text "credentials"
+  t.text "raw_info"
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+  t.index ["author_id"], name: "index_social_profiles_on_author_id"
+  t.index ["provider", "uid"], name: "index_social_profiles_on_provider_and_uid", unique: true
+end

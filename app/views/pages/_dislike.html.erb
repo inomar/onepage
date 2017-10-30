@@ -1,0 +1,3 @@
+<%= link_to dislike_page_path(@page.id), remote: true, method: :delete do %>
+    <i class="red heart icon"></i><%= @page.favorites.count %>
+<% end %>

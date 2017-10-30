@@ -1,0 +1,7 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "tags", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.string "name", collation: "utf8_bin"
+  t.integer "taggings_count", default: 0
+  t.index ["name"], name: "index_tags_on_name", unique: true
+end

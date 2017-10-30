@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe FavoritesController, type: :controller do
+	# TODO: test書く
   describe 'POST #create' do
     context 'with params[:id]' do
       it 'respond the :js'

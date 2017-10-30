@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :pages do
     member do
-      post 'add', to: 'favorites#create'
-      post 'delete', to: 'favorites#delete'
+      post 'like', to: 'favorites#create'
+      delete 'dislike', to: 'favorites#delete'
     end
     collection do
       get 'tag'

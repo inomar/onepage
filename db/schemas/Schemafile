@@ -1,0 +1,10 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+require 'authors.schema'
+require 'categories.schema'
+require 'favorites.schema'
+require 'pages.schema'
+require 'social_profiles.schema'
+require 'taggings.schema'
+require 'tags.schema'
+require 'templates.schema'

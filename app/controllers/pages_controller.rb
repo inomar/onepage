@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_param)
     @page.author = current_author
-    @page.is_open = false if draft?
+    @page.draft! if is_draft?
     @page.save
     redirect_to pages_path
   end
@@ -26,14 +26,9 @@ class PagesController < ApplicationController
   def update
     if params[:preview]
       @page = Page.new page_param
-      render :preview
-      return
+      return render :preview
     end
-    @page.is_open = if draft?
-                      false
-                    else
-                      true
-                    end
+    is_draft? ? @page.draft! : @page.published!
     @page.update(page_param)
     render 'edit'
   end
@@ -68,7 +63,7 @@ class PagesController < ApplicationController
     params.require(:page).permit(Page::PAGE_ATTRIBUTES)
   end
 
-  def draft?
-    !params[:draft].nil?
+  def is_draft?
+    params[:draft].present?
   end
 end

@@ -1,0 +1,16 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+create_table "templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  t.string "subject", null: false
+  t.string "title"
+  t.string "summary"
+  t.text "description", null: false
+  t.string "cover_id"
+  t.integer "category_id"
+  t.boolean "is_open"
+  t.integer "author_id", null: false
+  t.datetime "created_at", null: false
+  t.datetime "updated_at", null: false
+end
+
+add_foreign_key "social_profiles", "authors"

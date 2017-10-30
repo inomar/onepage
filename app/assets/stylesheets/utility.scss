@@ -14,6 +14,17 @@ $gray-medium-light: #eaeaea;
   border-left: none;
   border-radius: 0;
 }
+
+.fixed {
+  &--height {
+    box-sizing: border-box;
+    height: 100%;
+  }
+  &--width {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
 /* miscellaneous */
 
 .debug_dump {

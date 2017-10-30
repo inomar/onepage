@@ -1,14 +1,16 @@
 <% if @page.template_id.present? %>
   <%= f.hidden_field :template_id, value: @page.template_id %>
 <% end %>
+<div>
 
+</div>
 <div class="ui big form">
   <div class="ui secondary pointing menu js-postMenu">
     <a class="item active" data-tab="main">本編 </a>
     <a class="item" data-tab="option">オプション </a>
     <div class="right menu">
       <span class="item">
-        <% if @page.is_open %>
+        <% if @page.published? %>
           <span class="ui basic blue label">公開中</span>
         <% else %>
           <span class="ui basic label">非公開</span>
@@ -26,7 +28,7 @@
       <%= f.text_field :title, class: 'form__input', placeholder: 'タイトルを書く'%>
     </div>
     <div class="field">
-      <%= f.text_area :story, class: 'form__textarea', placeholder: '小説を書く...' %>
+      <%= f.text_area :story, class: 'form__textarea fixed--height js-pageStory', placeholder: '小説を書く...' %>
     </div>
   </div>
   <div class="ui tab" data-tab="option">
@@ -44,18 +46,14 @@
       <%= f.label :summary %>
       <%= f.text_area :summary %>
     </div>
-  </div>
-
-    <%= f.label :cover, class: 'ui button' do %>
+    <% f.label :cover, class: 'ui button' do %>
         画像を選択
         <%= f.attachment_field :cover, style: 'display:none;' %>
     <% end %>
 
-  <%= f.submit 'プレビュー', name: 'preview', class: 'ui button', formtarget: 'blank' %>
-  <%= link_to '削除',  @page, method: :delete, data: { confirm: 'You sure?' }, class: 'ui button' %>
-
-
-
+    <%= f.submit 'プレビュー', name: 'preview', class: 'ui button', formtarget: 'blank' %>
+    <%= link_to '削除',  @page, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'ui basic red button' %>
+  </div>
 </div>
 
 <%= javascript_pack_tag 'page' %>
