@@ -24,23 +24,26 @@
 </div>
 <div class="ui container">
 <% @templates.each do |template| %>
-    <div class="ui segments">
-      <div class="ui grey segment">
-        <a class="ui grey ribbon label"><%= template.category.name %></a>
-        <%= link_to template.subject, template_path(template), class: 'ui medium header' %>
-        <div>
-          <%= attachment_image_tag(template.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
-          <span><%= template.author.pen_name %></span>
-        </div>
-        <p><%= template.description %></p>
-        <div class="ui divider"></div>
-        <div class="ui link three stackable cards">
-          <% template.pages.each do |page| %>
-              <%= render 'layouts/card', page: page %>
-          <% end %>
+    <div class="ui basic segment">
+      <div class="ui content">
+        <%= attachment_image_tag(template.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+        <span><%= template.author.pen_name %></span>
+        <%= link_to 'このお題で小説を書く', template_duplicate_path(template), class: 'ui right floated basic blue mini button' %>
+      </div>
+      <div class="mt-1 mb-1">
+        <div class="ui header">お題: <%= link_to template.subject, template_path(template) %>
+          <p class="ui sub header">カテゴリ: <%= link_to template.category.name, '#', class: '' %></p>
         </div>
       </div>
-      <%= link_to 'この縛りに挑戦！！', template_duplicate_path(template), class: 'ui bottom attached grey button' %>
+      <div class="ui fitted hidden divider"></div>
+      <p class="ui description">
+        <%= template.description %>
+      </p>
+      <div class="ui link three stackable cards">
+        <% template.pages.each do |page| %>
+          <%= render 'layouts/card', page: page %>
+        <% end %>
+      </div>
     </div>
 <% end %>
 </div>

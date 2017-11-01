@@ -24,6 +24,7 @@ class Template < ApplicationRecord
   acts_as_taggable_on :tags
   belongs_to :category, optional: true
 
+  enum status: { draft: 0, published: 1 }
   paginates_per 20
 
   validates :subject,       presence: true, length: { maximum: 100 }
@@ -40,6 +41,6 @@ class Template < ApplicationRecord
   end
 
   def self.is_open_templates
-    where(is_open: true)
+    where(status: :published)
   end
 end

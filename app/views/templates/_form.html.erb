@@ -1,15 +1,21 @@
-<div class="ui form">
+<div class="ui big form">
   <div class="field">
     <%= f.label :subject %>
-    <%= f.text_field :subject %>
+    <%= f.text_field :subject, class: 'form__input' %>
   </div>
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <div class="">
+      <span>タイトル </span>
+      <div class="ui toggle checkbox">
+        <input type="checkbox" name="public">
+        <label>縛る</label>
+      </div>
+    </div>
+    <%= f.text_field :title, class: 'form__input' %>
   </div>
   <div class="field">
     <%= f.label :summary %>

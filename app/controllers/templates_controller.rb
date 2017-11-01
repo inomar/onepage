@@ -4,7 +4,6 @@ class TemplatesController < ApplicationController
 
   def index
     @templates = Template.is_open_templates.page params[:page]
-    pp @templates
   end
 
   def show; end

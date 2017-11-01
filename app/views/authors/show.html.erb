@@ -1,54 +1,56 @@
-<div class="ui grid stackable">
-  <div class="four wide column">
-    <div class="ui items">
-      <div class="item">
-        <%= attachment_image_tag(@author, :image, :fill, 100, 100, format: 'jpg', class: 'ui circular image') %>
-        <div class="middle aligned content">
-          <a class="header"><%= @author.pen_name %></a>
-          <div class="meta">
-            <span>Description</span>
+<div class="ui container">
+  <div class="ui grid stackable">
+    <div class="four wide column">
+      <div class="ui items">
+        <div class="item">
+          <%= attachment_image_tag(@author, :image, :fill, 100, 100, format: 'jpg', class: 'ui circular image') %>
+          <div class="middle aligned content">
+            <a class="header"><%= @author.pen_name %></a>
+            <div class="meta">
+              <span>Description</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="item">
-        <p><%= @author.description %></p>
+        <div class="item">
+          <p><%= @author.description %></p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="twelve wide column">
-    <div class="ui pointing secondary menu js-authorMenu">
-      <a class="item active" data-tab="pages">
-        作品
-      </a>
-      <a class="item" data-tab="templates">
-        お題
-      </a>
-      <a class="item" data-tab="likes">
-        お気に入り
-      </a>
-      <% if @author == current_author %>
-        <%= link_to '設定', edit_author_registration_path(@auhtor), data: { tag: 'setting'}, class: 'item' %>
-      <% end %>
-    </div>
-    <div class="ui tab active" data-tab="pages">
-      <div class="ui link two stackable cards">
-        <% @author.pages.each do |page| %>
-            <%= render 'layouts/card', page: page %>
+    <div class="twelve wide column">
+      <div class="ui pointing secondary menu js-authorMenu">
+        <a class="item active" data-tab="pages">
+          作品
+        </a>
+        <a class="item" data-tab="templates">
+          お題
+        </a>
+        <a class="item" data-tab="likes">
+          お気に入り
+        </a>
+        <% if @author == current_author %>
+            <%= link_to '設定', edit_author_registration_path(@auhtor), data: { tag: 'setting'}, class: 'item' %>
         <% end %>
       </div>
-    </div>
-    <div class="ui tab" data-tab="templates">
-      <div class="ui link two stackable cards">
-        <% @author.pages.each do |page| %>
-            <%= render 'layouts/card', page: page %>
-        <% end %>
+      <div class="ui tab active" data-tab="pages">
+        <div class="ui link two stackable cards">
+          <% @author.pages.each do |page| %>
+              <%= render 'layouts/card', page: page %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="ui tab" data-tab="likes">
-      <div class="ui link two stackable cards">
-        <% @author.pages.each do |page| %>
-            <%= render 'layouts/card', page: page %>
-        <% end %>
+      <div class="ui tab" data-tab="templates">
+        <div class="ui link two stackable cards">
+          <% @author.pages.each do |page| %>
+              <%= render 'layouts/card', page: page %>
+          <% end %>
+        </div>
+      </div>
+      <div class="ui tab" data-tab="likes">
+        <div class="ui link two stackable cards">
+          <% @author.pages.each do |page| %>
+              <%= render 'layouts/card', page: page %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

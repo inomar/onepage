@@ -31,27 +31,3 @@ $(() => {
     $(".js-pageStory").css("height", size + "px");
 });
 
-$(document).on('click', '', () => {
-  $.ajax({
-      url: '/',
-      type
-  })
-})
-
-function ajaxLike() {
-  const xhr = $.ajax({
-    type: 'POST',
-    url: '/'
-  });
-  return xhr;
-}
-const getLike = ajaxLike();
-getLike.done((response) => {
-    $('#hoge').html(response);
-});
-getLike.fail((response) => {
-    alert('えらぁ');
-});
-getLike.always((response) =>{
-    alert('コンプリート');
-});

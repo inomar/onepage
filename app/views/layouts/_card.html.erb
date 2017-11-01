@@ -27,15 +27,13 @@
   </div>
   <div class="extra content">
     <div class="left floated js-like" id="page-<%= page.id %>">
-      <% if author_signed_in? %>
-          <% if page.favorite_author(current_author.id) %>
-              <%= link_to dislike_page_path(page.id), remote: true, method: :delete do %>
-                  <i class="red heart icon"></i><%= page.favorites.count %>
-              <% end %>
-          <% else %>
-              <%= link_to like_page_path(page.id), remote: true, method: :post do %>
-                  <i class="empty red heart icon"></i><%= page.favorites.count %>
-              <% end %>
+      <% if page.favorite_author(current_author) %>
+          <%= link_to dislike_page_path(page.id), remote: true, method: :delete do %>
+              <i class="red heart icon"></i><%= page.favorites.count %>
+          <% end %>
+      <% else %>
+          <%= link_to like_page_path(page.id), remote: true, method: :post do %>
+              <i class="empty red heart icon"></i><%= page.favorites.count %>
           <% end %>
       <% end %>
     </div>
