@@ -36,6 +36,13 @@ $gray-medium-light: #eaeaea;
     width: 100%;
   }
 }
+.ui.small.image {
+  &.image__fit {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+}
 /* miscellaneous */
 
 .debug_dump {

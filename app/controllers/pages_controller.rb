@@ -53,6 +53,10 @@ class PagesController < ApplicationController
     render 'index'
   end
 
+  def search_image
+    render json: search_images(params[:q])
+  end
+
   private
 
   def set_page
@@ -65,5 +69,20 @@ class PagesController < ApplicationController
 
   def is_draft?
     params[:draft].present?
+  end
+
+  def search_images(query)
+    search_result = Unsplash::Photo.search(query)
+    search_result.map do |result|
+      search_params(result)
+    end
+  end
+
+  def search_params(param)
+    {
+        image: param.urls.raw,
+        full_image: param.urls.full,
+        thumb_image: param.urls.thumb
+    }
   end
 end

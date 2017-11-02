@@ -32,21 +32,49 @@
     </div>
   </div>
   <div class="ui tab" data-tab="option">
-    <div class="field">
-      <%= f.label 'カテゴリー' %>
-      <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui fluid search dropdown', multiple: true, prompt: '選択してください') %>
+    <div class="ui two column grid">
+      <div class="column">
+        <div class="field">
+          <%= f.label 'カテゴリー' %>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, class: 'ui fluid search dropdown', multiple: true, prompt: '選択してください') %>
+        </div>
+        <div class="field">
+          <%= f.label 'タグ' %>
+          <ul class="tag-it"></ul>
+          <%= hidden_field_tag 'tags', @page.tag_list, { class: 'js-tagHidden' } %>
+          <%# text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form__input', placeholder: 'タグを書く...' %>
+        </div>
+        <div class="field">
+          <%= f.label :summary %>
+          <%= f.text_area :summary %>
+        </div>
+      </div>
+      <div class="column">
+      </div>
     </div>
-    <div class="field">
-      <%= f.label 'タグ' %>
-      <ul class="tag-it"></ul>
-      <%= hidden_field_tag 'tags', @page.tag_list, { class: 'js-tagHidden' } %>
-      <%# text_field_tag 'page[tag_list]', @page.tag_list.join(','), class: 'form__input', placeholder: 'タグを書く...' %>
+    <a href="#" class="ui basic button js-imageModal">ブックカバー</a>
+
+    <div class="ui modal js-modal">
+      <i class="close icon"></i>
+      <div class="header">
+        <div class="ui search">
+          <div class="ui icon input">
+            <input class="prompt" type="text" placeholder="検索...">
+            <i class="search icon"></i>
+          </div>
+        </div>
+      </div>
+      <div class="image scrolling content" style="min-height: 500px">
+        <div class="image">
+          <div class="ui small images js-responseImages"></div>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui button">Cancel</div>
+        <div class="ui button">OK</div>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :summary %>
-      <%= f.text_area :summary %>
-    </div>
-    <% f.label :cover, class: 'ui button' do %>
+    <%= f.label :cover, class: 'ui button' do %>
         画像を選択
         <%= f.attachment_field :cover, style: 'display:none;' %>
     <% end %>

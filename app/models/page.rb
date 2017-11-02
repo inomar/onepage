@@ -45,4 +45,5 @@ class Page < ApplicationRecord
   def favorite_author(author_id)
     favorites.find_by(author_id: author_id)
   end
+
 end
