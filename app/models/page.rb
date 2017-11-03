@@ -16,7 +16,7 @@
 #
 
 class Page < ApplicationRecord
-  PAGE_ATTRIBUTES = %i[title summary story cover tag_list category_id template_id].freeze
+  PAGE_ATTRIBUTES = %i[title summary story cover cover_url tag_list category_id template_id].freeze
   has_many :favorites
   has_many :authors, through: :favorites
   belongs_to :template, optional: true

@@ -1,5 +1,6 @@
 <div class="card">
   <%= link_to page_path(page), class: 'ui fluid image' do %>
+      <img src="<%= page.cover_url %>" alt="">
    <%# attachment_image_tag(page, :cover, :fill, 200, 100, format: 'jpg') %>
   <% end %>
   <div class="extra content">

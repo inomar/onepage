@@ -5,6 +5,7 @@ create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=u
   t.string "summary"
   t.text "story", null: false
   t.string "cover_id"
+  t.string "cover_url"
   t.integer "status", default: 1
   t.integer "author_id", null: false
   t.datetime "created_at", null: false

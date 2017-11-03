@@ -50,9 +50,27 @@
         </div>
       </div>
       <div class="column">
+        <div class="field">
+          <label for="">ブックカバー</label>
+          <div class="ui tiny card">
+            <div class="image js-bookCover">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="">
+            </div>
+          </div>
+          <div class="ui two column grid">
+            <div class="column">
+              <a href="#" class="ui basic button js-imageModal">ブックカバー検索</a>
+              <%= f.hidden_field :cover_url, {class: 'js-coverUrl'} %>
+            </div>
+            <div class="column">
+              <%= f.label :cover, class: 'ui button' do %>
+                  画像を選択
+                  <%= f.attachment_field :cover, style: 'display:none;' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <a href="#" class="ui basic button js-imageModal">ブックカバー</a>
 
     <div class="ui modal js-modal">
       <i class="close icon"></i>

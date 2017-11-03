@@ -43,11 +43,12 @@ $('.ui.search').search({
       onResponse: function(response) {
         $.each(response, (index, item) => {
             const $img = $('<img>', {
-                src: ''
+                src: '',
+                addClass: 'js-setBookCover'
             });
             const $link = $('<a></a>', {
-                href: '',
-                addClass: 'ui small rounded image image__fit js-setBookCover'
+                href: '#',
+                addClass: 'ui small rounded image image__fit'
             });
             $('.js-responseImages').append($link.html($img.attr('src', item.image)))
         })
@@ -59,5 +60,11 @@ $('.ui.search').search({
 
 $(document).on('click', '.js-setBookCover', (e) => {
     const $target = $(e.currentTarget);
-    console.log($target.attr('src'));
+    const $img = $('<img>');
+    $('.js-bookCover').html($img.attr('src', $target.attr('src')))
+    $('.js-coverUrl').attr('value', $target.attr('src'))
 })
+
+$('.js-card').dimmer({
+    on: 'hover'
+});

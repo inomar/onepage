@@ -3,3 +3,16 @@
   border-top: 1px solid #e7e7e7;
   border-bottom: 1px solid #e7e7e7;
 }
+
+.p-card {
+  position: relative;
+  &__body {
+    height: 30px;
+    width: 100%;
+    background-color: rgba(#fff, 0.5);
+  }
+  &__position {
+    position: absolute;
+    bottom: 0;
+  }
+}
