@@ -35,7 +35,6 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'kaminari'
 
 group :staging do
-  gem 'sqlite3'
   gem 'rails_12factor'
 end
 
