@@ -8,5 +8,9 @@ test: &test
     secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
 staging: &staging
   twitter:
-      key: iUDnPifEFAQqD18GBQMDuDwj9
-      secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
+    key: iUDnPifEFAQqD18GBQMDuDwj9
+    secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
+production: &production
+  twitter:
+    key: iUDnPifEFAQqD18GBQMDuDwj9
+    secret: pfsw1ogyG4Qc4a6tq5RvTTqfjPxOykfOPKj4QPwROgiCG0RyHO
