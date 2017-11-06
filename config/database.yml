@@ -49,6 +49,7 @@ test:
 #
 staging:
   <<: *default
+  adapter: postgresql
   database: heroku_49240ac4ad2a6dc?
   username: b2e20f4cc269ed
   password: <%= ENV['DATABASE_PASSWORD'] %>
