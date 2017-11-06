@@ -1,3 +1,0 @@
-class UnsplashImage < Unsplash
-
-end

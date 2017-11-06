@@ -9,7 +9,7 @@
 #  description :text(65535)      not null
 #  cover_id    :string(255)
 #  category_id :integer
-#  is_open     :boolean
+#  status      :integer          default("published")
 #  author_id   :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

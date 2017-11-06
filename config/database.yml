@@ -47,6 +47,12 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  database: heroku_49240ac4ad2a6dc?
+  username: b2e20f4cc269ed
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
 production:
   <<: *default
   database: onepage_production

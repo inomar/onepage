@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20_171_024_143_918) do
     t.string 'summary', null: false
     t.text 'story', null: false
     t.string 'cover_id'
+		t.string 'cover_url'
     t.boolean 'is_open', default: true
     t.integer 'author_id', null: false
     t.datetime 'created_at', null: false

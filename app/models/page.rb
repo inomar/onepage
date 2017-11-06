@@ -4,10 +4,11 @@
 #
 #  id          :integer          not null, primary key
 #  title       :string(255)      not null
-#  summary     :string(255)      not null
+#  summary     :string(255)
 #  story       :text(65535)      not null
 #  cover_id    :string(255)
-#  is_open     :boolean          default(TRUE)
+#  cover_url   :string(255)
+#  status      :integer          default("published")
 #  author_id   :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -16,7 +17,7 @@
 #
 
 class Page < ApplicationRecord
-  PAGE_ATTRIBUTES = %i[title summary story cover cover_url tag_list category_id template_id].freeze
+  PAGE_ATTRIBUTES = %i[title summary story cove r cover_url tag_list category_id template_id].freeze
   has_many :favorites
   has_many :authors, through: :favorites
   belongs_to :template, optional: true
@@ -30,7 +31,7 @@ class Page < ApplicationRecord
   paginates_per 50
 
   validates :title, presence: true, length: { maximum: 100 }
-  validates :summary, presence: true, length: { maximum: 100 }
+  validates :summary, presence: true, length: { maximum: 200 }
   # TODO: 400文字制限なくそうかな？
   validates :story, presence: true, length: { maximum: 10_000 }
   validates :author_id, presence: true
@@ -45,5 +46,6 @@ class Page < ApplicationRecord
   def favorite_author(author_id)
     favorites.find_by(author_id: author_id)
   end
+
 
 end
