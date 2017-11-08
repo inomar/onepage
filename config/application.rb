@@ -23,7 +23,7 @@ module Onepage
       g.helper               false
       g.stylesheets          false
       g.javascripts          false
-      g.fixture_replacement  :factory_girl, dir: 'spec/support/factories'
+      g.fixture_replacement  :factory_bot, dir: 'spec/support/factories'
     end
   end
 end

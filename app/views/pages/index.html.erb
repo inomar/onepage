@@ -5,41 +5,9 @@
     <% end %>
   </div>
 
-  <div class="ui raised link card p-card">
-    <div class="blurring dimmable image js-card">
-      <div class="ui dimmer">
-        <div class="content p-card__content">
-          <div class="description">
-            <div class="ui left aligned">
-              <img class="ui avatar image" src="http://livedoor.blogimg.jp/fategogatya/imgs/3/6/36cfddae.jpg">
-              <span>Username</span>
-            </div>
-            <div class="ui hidden divider"></div>
-            <p>彼は目立つ事を嫌った。 そこに深い理由はない、ただ単純に注目されるととても緊張して、思うように動けなくなるからだ。</p>
-            <div class="ui hidden divider"></div>
-            <div class="ui mini labels">
-              <a href="" class="ui basic blue inverted label">
-                <i class="hashtag icon"></i>タブ
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img src="https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6" alt="">
-    </div>
-    <div class="content">
-      <a class="header" href="#">我輩は猫である名前もある</a>
-      <div class="meta">
-        <a>ホラー</a>
-      </div>
-    </div>
-  </div>
-
   <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
       <%= link_to tag.name, tag_pages_path(name: tag.name), class: css_class %>
   <% end %>
-  <div class="p-card__body p-card__position"></div>
-
 
   <%= paginate @pages %>
 </div>

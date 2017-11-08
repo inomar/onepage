@@ -12,7 +12,7 @@ require 'ffaker'
 #  category_id :integer
 #  template_id :integer
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :page do
     title { FFaker::Book.title }
     summary { FFaker::Book.genre }

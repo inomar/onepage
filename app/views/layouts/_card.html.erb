@@ -1,8 +1,11 @@
 <div class="ui raised link card p-card">
-  <div class="blurring dimmable image js-card">
+  <div class="image js-card"><!-- blurring dimmable image  -->
     <div class="ui dimmer">
       <div class="content p-card__content">
-        <div class="description">
+        <div class="header">
+         aa
+        </div>
+        <div class="center">
           <div class="ui left aligned">
             <%= link_to author_path page.author do %>
                 <%= attachment_image_tag(page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
@@ -10,12 +13,12 @@
             <% end %>
           </div>
           <div class="ui hidden divider"></div>
-          <p><%= page.summary %></p>
+          <p class="p-card__text"><%= page.summary %></p>
           <div class="ui hidden divider"></div>
           <div class="ui mini labels">
             <% page.tags.each.with_index do |tag, index| %>
                 <% break if index > 2 %>
-                <%= link_to tag_pages_path(name: tag.name), class: 'ui basic teal label' do %>
+                <%= link_to tag_pages_path(name: tag.name), class: 'ui basic blue label' do %>
                     <i class="hashtag icon"></i><%= tag %>
                 <% end %>
             <% end %>

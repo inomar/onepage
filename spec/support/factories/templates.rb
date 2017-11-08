@@ -12,7 +12,7 @@ require 'ffaker'
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :template do
     subject { FFaker::Book.title }
     title { FFaker::Book.title }

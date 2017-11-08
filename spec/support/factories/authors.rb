@@ -1,6 +1,6 @@
 require 'ffaker'
 
-FactoryGirl.define do
+FactoryBot.define do
   pass = FFaker::Internet.password(8)
   factory :author do
     name { FFaker::Name.name }
