@@ -14,6 +14,8 @@ ja:
         cover_id: 表紙
       author:
         email: メールアドレス
+        password: パスワード
+        remember_me: パスワードを記憶する
         name: 名前
         pen_name: ペンネーム
         description: 自己紹介
