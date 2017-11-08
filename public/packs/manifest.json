@@ -1,0 +1,9 @@
+{
+  "app.css": "/packs/app.css",
+  "app.js": "/packs/app.js",
+  "application.js": "/packs/application.js",
+  "hello_vue.css": "/packs/hello_vue.css",
+  "hello_vue.js": "/packs/hello_vue.js",
+  "page.js": "/packs/page.js",
+  "semantic/tasks/config/admin/templates/bower.js": "/packs/semantic/tasks/config/admin/templates/bower.js"
+}
