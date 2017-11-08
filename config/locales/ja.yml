@@ -15,6 +15,7 @@ ja:
       author:
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード(確認)
         remember_me: パスワードを記憶する
         name: 名前
         pen_name: ペンネーム
