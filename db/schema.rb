@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20_171_024_143_918) do
     t.string 'last_sign_in_ip'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
-    t.string 'name'
     t.string 'pen_name'
     t.string 'image_id'
     t.text 'description'

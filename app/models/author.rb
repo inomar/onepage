@@ -36,7 +36,6 @@ class Author < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, presence: true, unless: :twitter?
-  validates :name, presence: true, length: { maximum: 50 }
   validates :pen_name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :description, length: { maximum: 1000 }
 

@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   resources :templates
   get 'templates/:id/duplicate', to: 'templates#duplicate', as: 'template_duplicate'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 end

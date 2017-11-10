@@ -64,4 +64,13 @@ class SocialProfile < ApplicationRecord
   def self.select_provider(provider, uid)
     where(provider: provider, uid: uid)
   end
+
+  def self.get_profile(profile)
+    {
+        provider:  profile['provider'],
+        uid:       profile['uid'].to_s,
+        pen_name:  profile['info']['nickname'],
+        image_url: profile['info']['image']
+    }
+  end
 end

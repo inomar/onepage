@@ -3,7 +3,7 @@
     <div class="column">
       <h2>ログイン</h2>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui large form'}) do |f| %>
-          <div class="ui stacked segment">
+          <div class="ui stacked padded segment">
             <div class="field">
               <%= f.label :email %><br />
               <%= f.email_field :email, class: 'form__input', autofocus: true %>
@@ -24,13 +24,13 @@
             <% end -%>
 
             <div class="actions">
-              <%= f.submit 'ログイン', class: 'fluid ui basic blue button' %>
+              <%= f.submit 'ログイン', class: 'fluid ui blue large button' %>
             </div>
             <div class="ui horizontal divider">Or </div>
             <div class="field">
               <%- if devise_mapping.omniauthable? %>
                 <%- resource_class.omniauth_providers.each do |provider| %>
-                  <%= link_to omniauth_authorize_path(resource_name, provider), class: "fluid ui #{OmniAuth::Utils.camelize(provider).downcase} button" do %>
+                  <%= link_to omniauth_authorize_path(resource_name, provider), class: "fluid ui #{OmniAuth::Utils.camelize(provider).downcase} large button" do %>
                     <i class="<%= OmniAuth::Utils.camelize(provider).downcase %> icon"></i>
                     <%= OmniAuth::Utils.camelize(provider).downcase %>でログイン
                   <% end %>
