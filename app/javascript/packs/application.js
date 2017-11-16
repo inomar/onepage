@@ -15,3 +15,31 @@ $(document).on('click', '.js-menu', () => {
 $('.dropdown').dropdown();
 $('.js-postMenu .item').tab();
 
+$('.js-navMenu').popup(
+    {
+        hoverable  : true,
+        position   : 'bottom left',
+        delay: {
+            show: 300,
+            hide: 300
+        }
+    }
+);
+$('.js-headerOverlay')
+    .visibility({
+        type   : 'fixed',
+        once       : false,
+        continuous : true,
+        onPassing  : function(calculations) {
+            const newColor = 'rgba(255, 255, 255, ' + calculations.percentagePassed +')';
+            $(this).css('background-color', newColor);
+        }
+    })
+;
+$('.js-fadeInImage')
+    .visibility({
+        type       : 'image',
+        transition : 'fade in',
+        duration   : 1000
+    })
+;

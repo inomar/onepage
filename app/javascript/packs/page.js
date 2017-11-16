@@ -48,9 +48,13 @@ $('.ui.search').search({
             });
             const $link = $('<a></a>', {
                 href: '#',
-                addClass: 'ui small rounded image image__fit'
+                addClass: 'ui small rounded image image__fit js-fadeInImage'
             });
-            $('.js-responseImages').append($link.html($img.attr('src', item.image)))
+            $('.js-responseImages').append($link.html($img.attr('src', item.image))).visibility({
+                type       : 'image',
+                transition : 'fade in',
+                duration   : 1000
+            })
         })
       }
   },

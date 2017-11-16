@@ -2,9 +2,6 @@
   <div class="image js-card"><!-- blurring dimmable image  -->
     <div class="ui dimmer">
       <div class="content p-card__content">
-        <div class="header">
-         aa
-        </div>
         <div class="center">
           <div class="ui left aligned">
             <%= link_to author_path page.author do %>
@@ -27,7 +24,7 @@
       </div>
     </div>
     <% if page.cover_id.nil? %>
-      <img src="<%= page.cover_url || 'https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6' %>" alt="">
+      <img src="<%= page.cover_url || 'https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6' %>" alt="" class="js-fadeInImage">
     <% else %>
       <%= attachment_image_tag(page, :cover, :fill, 200, 100, format: 'jpg') %>
     <% end %>

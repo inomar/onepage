@@ -14,6 +14,14 @@ $gray-medium-light: #eaeaea;
   border-left: none;
   border-radius: 0;
 }
+// TODO: 画像
+.ui {
+  &-main {
+    &__image {
+      background-image: url(https://images.unsplash.com/photo-1499744632587-7798360ba20f?auto=format&fit=crop&w=2850&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
+    }
+  }
+}
  .mt {
    &-1 {
       margin-top: 1rem;
