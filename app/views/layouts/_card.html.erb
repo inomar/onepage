@@ -24,7 +24,7 @@
       </div>
     </div>
     <% if page.cover_id.nil? %>
-      <img src="<%= page.cover_url || 'https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6' %>" alt="" class="js-fadeInImage">
+      <img src="<%= page.book_cover || 'https://images.unsplash.com/photo-1478098711619-5ab0b478d6e6' %>" alt="" class="js-fadeInImage">
     <% else %>
       <%= attachment_image_tag(page, :cover, :fill, 200, 100, format: 'jpg') %>
     <% end %>

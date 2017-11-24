@@ -15,7 +15,6 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string(255)
 #  pen_name               :string(255)
 #  image_id               :string(255)
 #  description            :text(65535)

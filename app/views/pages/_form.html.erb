@@ -15,10 +15,6 @@
       </span>
     </div>
   </div>
-  <div class="ui right floated tiny buttons">
-    <%= f.submit '下書き保存', name: 'draft', class: 'ui basic blue button' %>
-    <%= f.submit '公開', class: 'ui blue button' %>
-  </div>
   <div class="ui tab active" data-tab="main">
     <div class="field">
       <%= f.label :title %>
@@ -29,7 +25,7 @@
     </div>
   </div>
   <div class="ui tab" data-tab="option">
-    <div class="ui two column grid">
+    <div class="ui stackable two column grid">
       <div class="column">
         <div class="field">
           <%= f.label 'カテゴリー' %>
@@ -49,15 +45,13 @@
       <div class="column">
         <div class="field">
           <label for="">ブックカバー</label>
-          <div class="ui tiny card">
-            <div class="image js-bookCover">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="">
-            </div>
+          <div class="js-bookCover">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="" class="ui rounded bordered image">
           </div>
           <div class="ui two column grid">
             <div class="column">
               <a href="#" class="ui basic button js-imageModal">ブックカバー検索</a>
-              <%= f.hidden_field :cover_url, {class: 'js-coverUrl'} %>
+              <%= f.hidden_field :book_cover, {class: 'js-coverUrl'} %>
             </div>
             <div class="column">
               <%= f.label :cover, class: 'ui button' do %>
@@ -89,9 +83,23 @@
       <div class="ui button">OK</div>
     </div>
   </div>
-    <%= f.submit 'プレビュー', name: 'preview', class: 'ui button', formtarget: 'blank' %>
-    <%= link_to '削除',  @page, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'ui basic red button' %>
   </div>
 </div>
+  <div class="ui bottom fixed secondary menu p-page__bottom">
+    <div class="ui container">
+      <div class="item">
+        <%= f.submit '下書き保存', name: 'draft', class: 'ui basic blue large button' %>
+      </div>
+      <div class="item">
+        <%= f.submit '公開', class: 'ui blue large button' %>
+      </div>
+      <div class="item">
+        <%= f.submit 'プレビュー', name: 'preview', class: 'ui button', formtarget: 'blank' %>
+      </div>
+      <div class="item">
+        <%= link_to '削除',  @page, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'ui basic red button' %>
+      </div>
+    </div>
+  </div>
 </div>
 <%= javascript_pack_tag 'page' %>

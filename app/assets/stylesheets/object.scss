@@ -2,6 +2,13 @@
   &__overlay {
   }
 }
+.ui.menu.p-page {
+  &__bottom {
+    background-color: #FFF;
+    padding: 10px 0;
+    border-top: 1px solid #BBB;
+  }
+}
 .p-summary {
   padding: 10px;
   border-top: 1px solid #e7e7e7;

@@ -64,7 +64,7 @@ $('.ui.search').search({
 
 $(document).on('click', '.js-setBookCover', (e) => {
     const $target = $(e.currentTarget);
-    const $img = $('<img>');
+    const $img = $('<img>', {addClass: 'ui rounded bordered image'});
     $('.js-bookCover').html($img.attr('src', $target.attr('src')))
     $('.js-coverUrl').attr('value', $target.attr('src'))
 })
