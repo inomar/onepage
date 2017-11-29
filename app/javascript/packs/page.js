@@ -44,13 +44,14 @@ $('.ui.search').search({
         $.each(response, (index, item) => {
             const $img = $('<img>', {
                 src: '',
-                addClass: 'js-setBookCover'
+                addClass: 'js-setBookCover',
+                id: item.id
             });
             const $link = $('<a></a>', {
                 href: '#',
                 addClass: 'ui small rounded image image__fit js-fadeInImage'
             });
-            $('.js-responseImages').append($link.html($img.attr('src', item.image))).visibility({
+            $('.js-responseImages').append($link.html($img.attr('src', item.small_image))).visibility({
                 type       : 'image',
                 transition : 'fade in',
                 duration   : 1000
@@ -67,6 +68,7 @@ $(document).on('click', '.js-setBookCover', (e) => {
     const $img = $('<img>', {addClass: 'ui rounded bordered image'});
     $('.js-bookCover').html($img.attr('src', $target.attr('src')))
     $('.js-coverUrl').attr('value', $target.attr('src'))
+    $('.js-coverId').attr('value', $target.attr('id'))
 })
 
 $('.js-card').dimmer({

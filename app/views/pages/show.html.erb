@@ -1,3 +1,5 @@
+<div class="p-page__background" style="background-image: url('<%= @book_cover %>')">
+</div>
 <div class="ui container">
   <div class="ui piled very padded segment">
     <div class="ui items">
@@ -7,6 +9,9 @@
             <%= link_to author_path(@page.author) do %>
                 <%= attachment_image_tag(@page.author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
                 <span><%= @page.author.pen_name %></span>
+            <% end %>
+            <% if @page.has_current_author?(current_author) %>
+                <%= link_to '編集', edit_page_path(@page), class: 'ui basic blue small button right floated' %>
             <% end %>
           </div>
           <div class="header">
@@ -51,10 +56,5 @@
         </div>
       </div>
     </div>
-    <%= @page.author.pen_name %>
-    <% if current_author %>
-        <%= '下書き' if @page.draft? %>
-        <%= link_to '編集', edit_page_path(@page) %>
-    <% end %>
   </div>
 </div>

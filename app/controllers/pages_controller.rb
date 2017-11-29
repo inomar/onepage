@@ -61,6 +61,7 @@ class PagesController < ApplicationController
 
   def set_page
     @page = Page.find(params[:id])
+    @book_cover = get_image(@page.image_id).dig('urls', 'regular')
   end
 
   def page_param
@@ -78,10 +79,19 @@ class PagesController < ApplicationController
     end
   end
 
+  def get_image(id)
+    Unsplash::Photo.find(id)
+  rescue => e
+    puts e.message
+  end
+
   def search_params(param)
     {
+        id: param.id,
         image: param.urls.raw,
+        regular_image: param.urls.regular,
         full_image: param.urls.full,
+        small_image: param.urls.small,
         thumb_image: param.urls.thumb
     }
   end

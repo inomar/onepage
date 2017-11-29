@@ -4,8 +4,8 @@ create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=u
   t.string "title", null: false
   t.string "summary"
   t.text "story", null: false
-  t.string "cover_id"
   t.string "book_cover"
+  t.string "image_id"
   t.integer "status", default: 0
   t.integer "author_id", null: false
   t.datetime "created_at", null: false

@@ -9,6 +9,18 @@
     border-top: 1px solid #BBB;
   }
 }
+.p-page {
+  &__background {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    height: 350px;
+    width: 100%;
+  }
+}
 .p-summary {
   padding: 10px;
   border-top: 1px solid #e7e7e7;
@@ -22,5 +34,9 @@
   }
   &__text {
     font-size: 0.8em;
+  }
+  &__selected {
+    box-sizing: border-box;
+    border: 2px solid blue;
   }
 }

@@ -17,12 +17,11 @@
 #
 
 class Page < ApplicationRecord
-  PAGE_ATTRIBUTES = %i[title summary story cover book_cover tag_list category_id template_id].freeze
+  PAGE_ATTRIBUTES = %i[title summary story cover book_cover tag_list category_id template_id image_id].freeze
   has_many :favorites
   has_many :authors, through: :favorites
   belongs_to :template, optional: true
   belongs_to :author
-  attachment :cover
   acts_as_taggable_on :tags
   belongs_to :category
 
@@ -45,6 +44,10 @@ class Page < ApplicationRecord
 
   def favorite_author(author_id)
     favorites.find_by(author_id: author_id)
+  end
+
+  def has_current_author?(current_author)
+    current_author == author
   end
 
 
