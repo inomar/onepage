@@ -88,9 +88,6 @@
         <%= f.submit '公開', class: 'ui blue large button' %>
       </div>
       <div class="item">
-        <%= f.submit 'プレビュー', name: 'preview', class: 'ui button', formtarget: 'blank' %>
-      </div>
-      <div class="item">
         <%= link_to '削除',  @page, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'ui basic red button' %>
       </div>
     </div>

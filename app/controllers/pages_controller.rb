@@ -26,10 +26,6 @@ class PagesController < ApplicationController
   end
 
   def update
-    if params[:preview]
-      @page = Page.new page_param
-      return render :preview
-    end
     is_draft? ? @page.draft! : @page.published!
     @page.update(page_param)
     render 'edit'
