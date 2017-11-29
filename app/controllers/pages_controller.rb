@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   before_action :tag_cloud, only: %i[index tag category]
 
   def index
-    @pages = Page.page(params[:page])
+    @pages = Page.page(params[:page]).by_join_date
   end
 
   def show; end
@@ -21,7 +21,9 @@ class PagesController < ApplicationController
     redirect_to pages_path
   end
 
-  def edit; end
+  def edit
+    redirect_to root_path unless @page.has_current_author?(current_author)
+  end
 
   def update
     if params[:preview]
