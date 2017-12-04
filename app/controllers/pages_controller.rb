@@ -4,10 +4,12 @@ class PagesController < ApplicationController
   before_action :tag_cloud, only: %i[index tag category]
 
   def index
-    @pages = Page.page(params[:page]).by_join_date
+    @pages = Page.page(params[:page]).published.by_join_date
   end
 
-  def show; end
+  def show
+    redirect_to pages_path if @page.draft?
+  end
 
   def new
     @page = Page.new
@@ -16,7 +18,7 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_param)
     @page.author = current_author
-    @page.draft! if is_draft?
+    @page.published! unless is_draft?
     @page.save
     redirect_to pages_path
   end

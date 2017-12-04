@@ -32,7 +32,7 @@
   <div class="content">
     <%= link_to page.title.truncate(50), page_path(page), class: 'header' %>
     <div class="meta">
-      <a><%= link_to page.category.name, category_pages_path(name: page.category.name) %></a>
+      <%= link_to page.category.name, category_pages_path(name: page.category.name) %>
     </div>
   </div>
   <div class="extra content">

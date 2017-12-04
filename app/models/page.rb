@@ -38,6 +38,7 @@ class Page < ApplicationRecord
 
   # http://tackeyy.com/blog/posts/how-to-fix-acts-as-taggable-on-bug-on-rails-5_1_3
   scope :by_join_date, -> { order('created_at DESC') }
+  scope :published, -> { where(status: 1)}
   scope :search_category, ->(category_name) { where(category_id: Category.by_name(category_name).id) }
   scope :search_tag, ->(tag_name) { tagged_with([tag_name]) }
   scope :tag_count, -> { tag_counts_on(:tags).order('count DESC') }

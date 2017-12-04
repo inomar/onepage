@@ -1,7 +1,8 @@
-<div class="ui secondary stackable menu js-headerOverlay p-header__overlay">
+<div class="ui secondary menu js-headerOverlay p-header__overlay">
   <div class="ui container">
+    <a class="mobile item js-openSidebar"><i class="sidebar icon"></i></a>
     <a class="active item">OnePage</a>
-    <a class="browse item visible js-navMenu">メニュー <i class="dropdown icon"></i> </a>
+    <a class="browse item visible js-navMenu p-globalNav">メニュー <i class="dropdown icon"></i> </a>
     <div class="ui text container popup bottom left transition hidden">
       <div class="ui four column relaxed divided grid">
         <div class="column">
@@ -55,8 +56,8 @@
             </div>
           </div>
       <% else %>
-          <%= link_to '新規登録', new_author_registration_path, class: 'ui inverted basic button' %>
-          <%= link_to 'ログイン', new_author_session_path, class: 'ui inverted basic button' %>
+          <%= link_to '新規登録', new_author_registration_path, class: 'ui inverted basic button item' %>
+          <%= link_to 'ログイン', new_author_session_path, class: 'ui inverted basic button item' %>
       <% end %>
     </div>
   </div>

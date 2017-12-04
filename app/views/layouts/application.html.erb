@@ -11,10 +11,9 @@
   </head>
 
   <body>
-    <%# render 'layouts/fixed_header' %>
-    <%= render 'layouts/header' %>
     <%= render 'layouts/sidebar' %>
     <div class="pusher">
+      <%= render 'layouts/header' %>
       <!-- Site content !-->
         <%= semantic_flash %>
         <%= yield %>

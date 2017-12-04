@@ -1,11 +1,29 @@
-<div class="ui left vertical menu sidebar js-sidebar">
+<div class="ui left vertical menu sidebar inverted js-sidebar">
+  <div class="item">
+    <div class="ui icon input">
+      <input type="text" placeholder="作品、作者、タグ...">
+      <i class="search icon"></i>
+    </div>
+  </div>
   <% if author_signed_in? %>
-    <%= link_to '作品を投稿する', new_page_path, class: 'ui inverted basic button item' %>
-    <%= link_to 'プロフィール', author_path(current_author), class: 'item'%>
-    <%= link_to 'ログアウト', destroy_author_session_path, method: :delete, class: 'item' %>
+    <%= link_to  new_page_path, class: 'item' do %>
+      <span class="ui inverted fluid basic small button">作品を投稿する</span>
+    <% end %>
+    <%= link_to author_path(current_author), class: 'item' do %>
+      <span class="ui inverted fluid basic small button">プロフィール</span>
+    <% end %>
+    <%= link_to destroy_author_session_path, method: :delete, class: 'item' do %>
+      <span class="ui inverted fluid basic small button">ログアウト</span>
+    <% end %>
   <% else %>
-    <%= link_to '新規登録', new_author_registration_path, class: 'item' %>
-    <%= link_to 'ログイン', new_author_session_path, class: 'item' %>
-    <%= link_to 'twitter', author_twitter_omniauth_authorize_path, class: 'item' %>
+    <%= link_to new_author_registration_path, class: 'item' do %>
+      <span class="ui inverted fluid basic small button">新規登録</span>
+    <% end %>
+    <%= link_to new_author_session_path, class: 'item' do %>
+      <span class="ui inverted fluid basic small button">ログイン</span>
+    <% end %>
+  <% end %>
+  <% Category.all.each do |category| %>
+    <%= link_to category.name, category_pages_path(name: category.name), class: 'item' %>
   <% end %>
 </div>
