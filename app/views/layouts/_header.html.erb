@@ -48,7 +48,11 @@
       <% if author_signed_in? %>
           <div class="ui dropdown">
             <a href="#" class="item js-dropdown-btn">
-              <%= attachment_image_tag(current_author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+              <% if current_author.image.blank? %>
+                <%= image_tag 'http://www.tv-asahi.co.jp/doraemon/cast/img/doraemon.jpg', class: 'ui avatar image' %>
+              <% else %>
+                <%= attachment_image_tag(current_author, :image, :fill, 100, 100, format: 'jpg', class: 'ui avatar image') %>
+              <% end %>
             </a>
             <div class="menu">
               <%= link_to 'プロフィール', author_path(current_author), class: 'item' %>
