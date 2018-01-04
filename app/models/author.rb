@@ -38,7 +38,7 @@ class Author < ApplicationRecord
   validates :pen_name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :description, length: { maximum: 1000 }
 
-  attachment :image
+  attachment :image, content_type: %w[image/jpeg image/png image/gif]
 
   def social_profile(provider)
     social_profiles.select { |sp| sp.provider == provider.to_s }.first

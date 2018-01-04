@@ -1,9 +1,8 @@
 <div class="ui container">
-  <h2>プロフィール編集</h2>
+  <h2>アカウント編集</h2>
   <div class="ui form">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put  }) do |f| %>
-        <%= devise_error_messages! %>
-
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
         <div class="field">
           <%= f.label :email %>
           <%= f.email_field :email, autofocus: true, class: 'form__input', placeholder: 'メールアドレス' %>
@@ -42,16 +41,24 @@
           <%= f.label :description %>
           <%= f.text_area :description, class: 'form__textarea', placeholder: '自己紹介' %>
         </div>
-　　　　　<div class="field">
-        <%= f.label :image, class: 'ui button' do %>
-            アイコンを選択
-            <%= f.attachment_field :image, style: 'display:none;' %>
-        <% end %>
-    　　 </div>
-        <%= f.submit '更新', class: 'ui blue button' %>
+        <div class="column">
+          <div class="ui labeled input">
+            <%= f.label :image, class: 'ui label button' do %>
+              アイコンを選択
+              <%= f.attachment_field :image, style: 'display:none;', class: 'js-imageUpload' %>
+            <% end %>
+            <input type="text" placeholder="ファイル名" class="js-imageUploadText" readonly>
+          </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="column">
+          <%= link_to '戻る', :back, class: 'ui basic button' %>
+          <%= f.submit '更新', class: 'ui basic blue button' %>
+        </div>
+        <div class="ui divider"></div>
     <% end %>
-
-    <%= button_to 'アカウント削除', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui negative basic button' %>
-    <%= link_to "Back", :back %>
   </div>
+  <%= button_to 'アカウント削除', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui basic red button' %>
 </div>
+
+<%= javascript_pack_tag 'author.js' %>
