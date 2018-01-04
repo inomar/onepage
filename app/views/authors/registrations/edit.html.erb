@@ -41,7 +41,7 @@
           <%= f.label :description %>
           <%= f.text_area :description, class: 'form__textarea', placeholder: '自己紹介' %>
         </div>
-        <div class="column">
+        <div class="field">
           <div class="ui labeled input">
             <%= f.label :image, class: 'ui label button' do %>
               アイコンを選択
@@ -50,7 +50,7 @@
             <input type="text" placeholder="ファイル名" class="js-imageUploadText" readonly>
           </div>
         </div>
-        <div class="ui divider"></div>
+        <div class="ui hidden divider"></div>
         <div class="column">
           <%= link_to '戻る', :back, class: 'ui basic button' %>
           <%= f.submit '更新', class: 'ui basic blue button' %>
@@ -58,7 +58,8 @@
         <div class="ui divider"></div>
     <% end %>
   </div>
-  <%= button_to 'アカウント削除', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui basic red button' %>
+  <h2>アカウント削除</h2>
+  <%= button_to '削除する', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui basic red button' %>
 </div>
 
 <%= javascript_pack_tag 'author.js' %>
