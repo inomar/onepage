@@ -18,9 +18,12 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_param)
     @page.author = current_author
-    @page.published! unless is_draft?
-    @page.save
-    redirect_to pages_path
+    if @page.save || is_draft?
+      @page.published! unless is_draft?
+      redirect_to pages_path
+    else
+      render :new
+    end
   end
 
   def edit
