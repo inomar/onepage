@@ -33,9 +33,8 @@ RSpec.describe Author, type: :model do
   # 有効である状態
   context 'is valid' do
     # 名前とペンネームとメールがあれば有効な状態
-    it 'with a name, pen_name and email' do
+    it 'with a pen_name and email' do
       author = build(:author,
-                     name: 'Makoto',
                      pen_name: 'inomar14',
                      email: 'inomar@example.com')
       expect(author).to be_valid
@@ -44,20 +43,6 @@ RSpec.describe Author, type: :model do
 
   # 無効である状態
   context 'is invalid' do
-    # 名前がなければ無効状態
-    it 'without a name' do
-      author = build(:author, name: nil)
-      author.valid?
-      expect(author.errors[:name]).to include('を入力してください')
-    end
-
-    # 名前が最大文字数を越えれば無効
-    it 'a name maximum number' do
-      max = 50
-      author = build(:author, name: 'あ' * (max + 1))
-      author.valid?
-      expect(author.errors[:name]).to include("は#{max}文字以内で入力してください")
-    end
 
     # ペンネームがなければ無効
     it 'without a pen_name' do

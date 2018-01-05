@@ -3,7 +3,6 @@ require 'ffaker'
 FactoryBot.define do
   pass = FFaker::Internet.password(8)
   factory :author do
-    name { FFaker::Name.name }
     pen_name { FFaker::Internet.user_name }
     email { FFaker::Internet.email }
     password pass
