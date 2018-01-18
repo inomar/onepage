@@ -124,6 +124,8 @@ GEM
     diffy (3.2.0)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    draftsman (0.7.1)
+      activerecord (>= 4.0, < 5.2)
     erubi (1.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -393,6 +395,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   devise
+  draftsman (~> 0.7.1)
   factory_bot_rails
   ffaker
   font-awesome-rails

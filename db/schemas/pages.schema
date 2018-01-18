@@ -4,6 +4,7 @@ create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=u
   t.string "title", null: false
   t.string "summary"
   t.text "story", null: false
+  t.string "cover_id"
   t.string "book_cover"
   t.string "image_id"
   t.integer "status", default: 0
@@ -12,4 +13,7 @@ create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=u
   t.datetime "updated_at", null: false
   t.integer "category_id"
   t.integer "template_id"
+  t.integer "draft_id"
+  t.timestamp "published_at"
+  t.timestamp "trashed_at"
 end

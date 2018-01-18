@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "/packs/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 12:
-/*!*******************************************************************************!*\
-  !*** ./app/javascript/packs/semantic/tasks/config/admin/templates/bower.json ***!
-  \*******************************************************************************/
+/***/ 6:
+/*!****************************************!*\
+  !*** ./app/javascript/packs/author.js ***!
+  \****************************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
 
-eval("module.exports = {\"name\":\"Component\",\"description\":\"Component distribution\",\"homepage\":\"http://www.semantic-ui.com\",\"author\":{\"name\":\"Jack Lukic\",\"web\":\"http://www.jacklukic.com\"},\"ignore\":[\"docs\",\"node\",\"server\",\"spec\",\"src\",\"test\"],\"keywords\":[\"semantic\",\"ui\",\"css3\",\"framework\"],\"license\":[\"http://semantic-ui.mit-license.org/\"]}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMTIuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvamF2YXNjcmlwdC9wYWNrcy9zZW1hbnRpYy90YXNrcy9jb25maWcvYWRtaW4vdGVtcGxhdGVzL2Jvd2VyLmpzb24/ZmM2MyJdLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IHtcIm5hbWVcIjpcIkNvbXBvbmVudFwiLFwiZGVzY3JpcHRpb25cIjpcIkNvbXBvbmVudCBkaXN0cmlidXRpb25cIixcImhvbWVwYWdlXCI6XCJodHRwOi8vd3d3LnNlbWFudGljLXVpLmNvbVwiLFwiYXV0aG9yXCI6e1wibmFtZVwiOlwiSmFjayBMdWtpY1wiLFwid2ViXCI6XCJodHRwOi8vd3d3LmphY2tsdWtpYy5jb21cIn0sXCJpZ25vcmVcIjpbXCJkb2NzXCIsXCJub2RlXCIsXCJzZXJ2ZXJcIixcInNwZWNcIixcInNyY1wiLFwidGVzdFwiXSxcImtleXdvcmRzXCI6W1wic2VtYW50aWNcIixcInVpXCIsXCJjc3MzXCIsXCJmcmFtZXdvcmtcIl0sXCJsaWNlbnNlXCI6W1wiaHR0cDovL3NlbWFudGljLXVpLm1pdC1saWNlbnNlLm9yZy9cIl19XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9hcHAvamF2YXNjcmlwdC9wYWNrcy9zZW1hbnRpYy90YXNrcy9jb25maWcvYWRtaW4vdGVtcGxhdGVzL2Jvd2VyLmpzb25cbi8vIG1vZHVsZSBpZCA9IDEyXG4vLyBtb2R1bGUgY2h1bmtzID0gNSJdLCJtYXBwaW5ncyI6IkFBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///12\n");
+eval("// iconアップロード時に画像名を表示\n$(document).on('change', '.js-imageUpload', function () {\n  var $file = $('.js-imageUpload');\n  var $input = $('.js-imageUploadText');\n  var label = $file[0].files[0].name;\n  $input.val(label);\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNi5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL2FwcC9qYXZhc2NyaXB0L3BhY2tzL2F1dGhvci5qcz9lNGM0Il0sInNvdXJjZXNDb250ZW50IjpbIi8vIGljb27jgqLjg4Pjg5fjg63jg7zjg4nmmYLjgavnlLvlg4/lkI3jgpLooajnpLpcbiQoZG9jdW1lbnQpLm9uKCdjaGFuZ2UnLCAnLmpzLWltYWdlVXBsb2FkJywgZnVuY3Rpb24gKCkge1xuICB2YXIgJGZpbGUgPSAkKCcuanMtaW1hZ2VVcGxvYWQnKTtcbiAgdmFyICRpbnB1dCA9ICQoJy5qcy1pbWFnZVVwbG9hZFRleHQnKTtcbiAgdmFyIGxhYmVsID0gJGZpbGVbMF0uZmlsZXNbMF0ubmFtZTtcbiAgJGlucHV0LnZhbChsYWJlbCk7XG59KTtcblxuXG4vLy8vLy8vLy8vLy8vLy8vLy9cbi8vIFdFQlBBQ0sgRk9PVEVSXG4vLyAuL2FwcC9qYXZhc2NyaXB0L3BhY2tzL2F1dGhvci5qc1xuLy8gbW9kdWxlIGlkID0gNlxuLy8gbW9kdWxlIGNodW5rcyA9IDMiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///6\n");
 
 /***/ })
 

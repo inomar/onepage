@@ -30,9 +30,11 @@
     <% end %>
   </div>
   <div class="content">
-    <%= link_to page.title.truncate(50), page_path(page), class: 'header' %>
+    <%= link_to page_path(page), class: 'header' do %>
+      <%= page.title.blank? ? 'タイトル未定' : page.title.truncate(50) %>
+    <% end %>
     <div class="meta">
-      <%= link_to page.category.name, category_pages_path(name: page.category.name) %>
+      <%= link_to_if page.category.present?, page.category&.name, category_pages_path(name: page.category&.name) %>
     </div>
   </div>
   <div class="extra content">

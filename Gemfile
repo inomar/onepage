@@ -34,6 +34,8 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
 gem 'kaminari'
 
+gem 'draftsman', '~> 0.7.1'
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

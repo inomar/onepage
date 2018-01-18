@@ -1,10 +1,10 @@
 {
-  "app.css": "http://0.0.0.0:8080/packs/app.css",
-  "app.js": "http://0.0.0.0:8080/packs/app.js",
-  "application.js": "http://0.0.0.0:8080/packs/application.js",
-  "author.js": "http://0.0.0.0:8080/packs/author.js",
-  "hello_vue.css": "http://0.0.0.0:8080/packs/hello_vue.css",
-  "hello_vue.js": "http://0.0.0.0:8080/packs/hello_vue.js",
-  "page.js": "http://0.0.0.0:8080/packs/page.js",
-  "semantic/tasks/config/admin/templates/bower.js": "http://0.0.0.0:8080/packs/semantic/tasks/config/admin/templates/bower.js"
+  "app.css": "/packs/app.css",
+  "app.js": "/packs/app.js",
+  "application.js": "/packs/application.js",
+  "author.js": "/packs/author.js",
+  "hello_vue.css": "/packs/hello_vue.css",
+  "hello_vue.js": "/packs/hello_vue.js",
+  "page.js": "/packs/page.js",
+  "semantic/tasks/config/admin/templates/bower.js": "/packs/semantic/tasks/config/admin/templates/bower.js"
 }

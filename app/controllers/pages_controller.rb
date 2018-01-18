@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   before_action :authenticate_author!, only: %i[new create edit update]
   before_action :set_page, only: %i[show edit update destroy preview]
   before_action :tag_cloud, only: %i[index tag category]
+  before_action :set_category, only: %i[new edit create update]
 
   def index
     @pages = Page.page(params[:page]).published.by_join_date
@@ -18,12 +19,17 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(page_param)
     @page.author = current_author
-    if @page.save || is_draft?
-      @page.published! unless is_draft?
+    if @page.save_draft # || is_draft?
+      is_draft? ? @page.draft! : @page.published!
       redirect_to pages_path
     else
       render :new
     end
+  end
+
+  def draft
+
+    redirect_to pages_path
   end
 
   def edit
@@ -64,7 +70,12 @@ class PagesController < ApplicationController
 
   def set_page
     @page = Page.find(params[:id])
-    @book_cover = get_image(@page.image_id).dig('urls', 'regular')
+    # TODO: bookcoverの取り扱い
+    @book_cover = nil #get_image(@page.image_id).dig('urls', 'regular')
+  end
+
+  def set_category
+    @categories = Category.all.pluck(:name,:id)
   end
 
   def page_param
@@ -86,6 +97,13 @@ class PagesController < ApplicationController
     Unsplash::Photo.find(id)
   rescue => e
     puts e.message
+  end
+
+  def default_page
+    {
+        title: '名前のない小説',
+
+    }
   end
 
   def search_params(param)
