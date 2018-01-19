@@ -5,11 +5,17 @@ class PagesController < ApplicationController
   before_action :set_category, only: %i[new edit create update]
 
   def index
-    @pages = Page.page(params[:page]).published.by_join_date
+    @pages = Page.page(params[:page])
+                 .published
+                 .live
+                 .by_join_date
   end
 
   def show
-    redirect_to pages_path if @page.draft?
+    redirect_to pages_path if @page.trashed?
+    unless @page.has_current_author?(current_author)
+      redirect_to pages_path
+    end
   end
 
   def new
@@ -43,7 +49,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    @page.delete
+    @page.draft_destruction
     # TODO: success message
     redirect_to pages_path
   end
@@ -53,12 +59,20 @@ class PagesController < ApplicationController
   end
 
   def tag
-    @pages = Page.search_tag(params[:name]).page(params[:page])
+    @pages = Page.search_tag(params[:name])
+                 .page(params[:page])
+                 .published
+                 .live
+                 .by_join_date
     render 'index'
   end
 
   def category
-    @pages = Page.search_category(params[:name]).page(params[:page])
+    @pages = Page.search_category(params[:name])
+                 .page(params[:page])
+                 .published
+                 .live
+                 .by_join_date
     render 'index'
   end
 
@@ -97,13 +111,6 @@ class PagesController < ApplicationController
     Unsplash::Photo.find(id)
   rescue => e
     puts e.message
-  end
-
-  def default_page
-    {
-        title: '名前のない小説',
-
-    }
   end
 
   def search_params(param)
