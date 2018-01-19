@@ -40,10 +40,14 @@
     </div>
     <div class="right menu">
       <div class="hidden item">
-        <div class="ui icon input">
-          <input type="text" placeholder="作品、作者、タグ...">
-          <i class="search icon"></i>
-        </div>
+        <%= form_tag search_pages_path, method: 'get' do |f| %>
+          <div class="ui action input">
+            <%= search_field_tag 'q', '', { placeholder: '作品名、作者、タグ...'} %>
+            <button class="ui icon button">
+              <i class="search icon"></i>
+            </button>
+          </div>
+        <% end %>
       </div>
       <% if author_signed_in? %>
           <div class="ui dropdown">

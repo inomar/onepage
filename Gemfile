@@ -35,6 +35,7 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'kaminari'
 
 gem 'draftsman', '~> 0.7.1'
+gem 'search_cop'
 
 group :development, :test do
   gem 'better_errors'

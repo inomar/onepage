@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get 'tag'
       get 'category'
 			get 'search_image'
+      get 'search'
     end
   end
   get 'pages/:id/preview', to: 'pages#preview', as: 'page_preview'

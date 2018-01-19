@@ -17,17 +17,21 @@
 #
 
 class Page < ApplicationRecord
+  include SearchCop
+
   PAGE_ATTRIBUTES = %i[title summary story cover book_cover tag_list template_id image_id category_id].freeze
+
   has_many :favorites
   has_many :authors, through: :favorites
   belongs_to :template, optional: true
   belongs_to :author
-  acts_as_taggable_on :tags
   belongs_to :category, optional: true
+  acts_as_taggable_on :tags
   has_drafts
 
   enum status: { draft: 0, published: 1 }
 
+  # kaminari
   paginates_per 50
 
   validates :title, length: { maximum: 100 }
@@ -43,9 +47,15 @@ class Page < ApplicationRecord
 
   # http://tackeyy.com/blog/posts/how-to-fix-acts-as-taggable-on-bug-on-rails-5_1_3
   scope :by_join_date, -> { order('created_at DESC') }
-  scope :search_category, ->(category_name) { where(category_id: Category.by_name(category_name).id) }
-  scope :search_tag, ->(tag_name) { tagged_with([tag_name]) }
+  scope :search_category, -> (category_name) { where(category_id: Category.by_name(category_name).id) }
+  scope :search_tag, -> (tag_name) { tagged_with([tag_name]) }
   scope :tag_count, -> { tag_counts_on(:tags).order('count DESC') }
+
+  search_scope :search do
+    attributes :title, :summary, :story
+    attributes author: ['author.pen_name']
+    attributes tags: ['tags.name']
+  end
 
   def is_draft?
     status == 'draft'

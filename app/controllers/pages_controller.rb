@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :authenticate_author!, only: %i[new create edit update]
   before_action :set_page, only: %i[show edit update destroy preview]
-  before_action :tag_cloud, only: %i[index tag category]
+  before_action :tag_cloud, only: %i[index search tag category]
   before_action :set_category, only: %i[new edit create update]
 
   def index
@@ -13,8 +13,8 @@ class PagesController < ApplicationController
 
   def show
     redirect_to pages_path if @page.trashed?
-    unless @page.has_current_author?(current_author)
-      redirect_to pages_path
+    if @page.draft?
+      redirect_to pages_path unless @page.has_current_author?(current_author)
     end
   end
 
@@ -52,6 +52,14 @@ class PagesController < ApplicationController
     @page.draft_destruction
     # TODO: success message
     redirect_to pages_path
+  end
+
+  def search
+    @pages = Page.search(params[:q])
+                 .page(params[:page])
+                 .published
+                 .live
+    render :index
   end
 
   def tag_cloud
