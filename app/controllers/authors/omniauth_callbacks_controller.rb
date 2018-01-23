@@ -8,16 +8,10 @@ class Authors::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def basic_action
     @omniauth = request.env['omniauth.auth']
     if @omniauth.present?
-      pp @omniauth
       @profile = SocialProfile.select_provider(@omniauth['provider'], @omniauth['uid']).first
       unless @profile
-        @profile = SocialProfile.new(
-            provider: @omniauth['provider'],
-            uid: @omniauth['uid'],
-            pen_name: @omniauth['info']['nickname'],
-            image_url: @omniauth['info']['image'] )
+        @profile = set_social_profile(@omniauth)
         @profile.author = current_author || set_author_socila_profile(@profile)
-        pp @profile.author
         @profile.save!
       end
       if current_author
@@ -34,5 +28,13 @@ class Authors::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     author = Author.new(pen_name: profile.pen_name)
     author.social_profiles << profile
     author
+  end
+
+  def set_social_profile(omniauth)
+    SocialProfile.new(
+        provider: omniauth['provider'],
+        uid: omniauth['uid'],
+        pen_name: omniauth['info']['nickname'],
+        image_url: omniauth['info']['image'] )
   end
 end

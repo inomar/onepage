@@ -33,11 +33,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def draft
-
-    redirect_to pages_path
-  end
-
   def edit
     redirect_to root_path unless @page.has_current_author?(current_author)
   end
