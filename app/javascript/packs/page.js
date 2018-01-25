@@ -74,3 +74,5 @@ $(document).on('click', '.js-setBookCover', (e) => {
 $('.js-card').dimmer({
     on: 'hover'
 });
+
+$('.js-deleteModal').modal('attach events', '.js-deleteBtn', 'show');

@@ -96,10 +96,27 @@
       <div class="item">
         <%= f.submit '公開', class: 'ui blue large button' %>
       </div>
-      <div class="item">
-        <%= link_to '削除',  @page, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'ui basic red button' %>
+      <div class="item right">
+        <button class="ui basic red button js-deleteBtn" type="button">削除</button>
       </div>
     </div>
   </div>
 </div>
+
+<div class="ui basic modal js-deleteModal">
+  <div class="ui icon header">
+    <i class="book icon"></i>
+    本の削除
+  </div>
+  <div class="content">
+    <p>たくさんの読者があなたの小説をまだよんでません。本当に消しますか？</p>
+  </div>
+  <div class="actions">
+    <%= link_to '削除',  @page, method: :delete, class: 'ui red basic cancel inverted button' %>
+    <div class="ui green ok inverted button">
+      やっぱり辞める
+    </div>
+  </div>
+</div>
+
 <%= javascript_pack_tag 'page' %>

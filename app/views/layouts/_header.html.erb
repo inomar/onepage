@@ -52,7 +52,7 @@
       <% if author_signed_in? %>
           <div class="ui dropdown">
             <a href="#" class="item js-dropdown-btn">
-              <%= attachment_image_tag(current_author, :image, :fill, 100, 100, fallback: 'none-author-icon', format: 'jpg', class: 'ui avatar bordered image') %>
+              <%= attachment_image_tag(current_author, :image, :fill, 100, 100, fallback: 'none-author-icon', format: 'jpg', class: 'ui avatar bordered mini image') %>
             </a>
             <div class="menu">
               <%= link_to 'プロフィール', author_path(current_author), class: 'item' %>
