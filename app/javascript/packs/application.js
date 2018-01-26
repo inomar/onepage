@@ -34,7 +34,7 @@ $('.js-headerOverlay')
         once       : false,
         continuous : true,
         onPassing  : function(calculations) {
-            const newColor = 'rgba(255, 255, 255, ' + calculations.percentagePassed +')';
+            const newColor = 'rgba(2, 2, 2, ' + calculations.percentagePassed +')';
             $(this).css('background-color', newColor);
         }
     })

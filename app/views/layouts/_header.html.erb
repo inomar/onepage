@@ -1,46 +1,23 @@
 <div class="ui secondary menu js-headerOverlay p-header__overlay">
   <div class="ui container">
     <a class="mobile item js-openSidebar"><i class="sidebar icon"></i></a>
-    <a class="active item">OnePage</a>
+    <%= link_to 'OnePage', root_path, class: 'header item' %>
     <a class="browse item visible js-navMenu p-globalNav">メニュー <i class="dropdown icon"></i> </a>
     <div class="ui text container popup bottom left transition hidden">
       <div class="ui four column relaxed divided grid">
         <div class="column">
+          <h4 class="ui header">カテゴリー</h4>
           <div class="ui link list">
-            <%= link_to 'お題を投稿', new_template_path, class: 'item' %>
-            <%= link_to '小説を投稿', new_page_path, class: 'item' %>
-            <%= link_to 'お題', templates_path, class: 'item' %>
-            <%= link_to '作品', pages_path, class: 'item' %>
-          </div>
-        </div>
-        <div class="column">
-          <h4 class="ui header">小説</h4>
-          <div class="ui link list">
-            <a class="item">スモール</a>
-            <a class="item">ミディアム</a>
-            <a class="item">ラージ</a>
-            <a class="item">Plus Sizes</a>
-          </div>
-          <h4 class="ui header">お題</h4>
-          <div class="ui link list">
-            <a class="item">Neutrals</a>
-            <a class="item">Brights</a>
-            <a class="item">Pastels</a>
-          </div>
-        </div>
-        <div class="column">
-          <h4 class="ui header">お題</h4>
-          <div class="ui link list">
-            <a class="item">Neutrals</a>
-            <a class="item">Brights</a>
-            <a class="item">Pastels</a>
+            <% Category.all.each do |category| %>
+                <%= link_to category.name, category_pages_path(name: category.name), class: 'item' %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
     <div class="right menu">
-      <div class="hidden item">
-        <%= render 'shared/search_bar' %>
+      <div class="item">
+          <%= render 'shared/search_bar' %>
       </div>
       <% if author_signed_in? %>
           <div class="ui dropdown">
@@ -48,13 +25,14 @@
               <%= attachment_image_tag(current_author, :image, :fill, 100, 100, fallback: 'none-author-icon', format: 'jpg', class: 'ui avatar bordered mini image') %>
             </a>
             <div class="menu">
+              <%= link_to '投稿する', new_page_path, class: 'item' %>
               <%= link_to 'プロフィール', author_path(current_author), class: 'item' %>
               <%= link_to 'ログアウト', destroy_author_session_path, method: :delete, class: 'item' %>
             </div>
           </div>
       <% else %>
-          <%= link_to '新規登録', new_author_registration_path, class: 'ui inverted basic button item' %>
-          <%= link_to 'ログイン', new_author_session_path, class: 'ui inverted basic button item' %>
+          <%= link_to '新規登録', new_author_registration_path, class: 'ui inverted basic grey button item' %>
+          <%= link_to 'ログイン', new_author_session_path, class: 'ui inverted basic grey button item' %>
       <% end %>
     </div>
   </div>

@@ -1,10 +1,12 @@
 <div class="ui left vertical menu sidebar inverted js-sidebar">
   <div class="item">
-     <%= render 'shared/search_bar' %>
+    <div class="ui fluid">
+      <%= render 'shared/search_bar' %>
+    </div>
   </div>
   <% if author_signed_in? %>
     <%= link_to  new_page_path, class: 'item' do %>
-      <span class="ui inverted fluid basic small button">作品を投稿する</span>
+      <span class="ui inverted fluid basic small button">投稿する</span>
     <% end %>
     <%= link_to author_path(current_author), class: 'item' do %>
       <span class="ui inverted fluid basic small button">プロフィール</span>
@@ -20,7 +22,12 @@
       <span class="ui inverted fluid basic small button">ログイン</span>
     <% end %>
   <% end %>
+  <div class="item">
+    <div class="fitted divider"></div>
+    <h3>カテゴリー</h3>
+  </div>
   <% Category.all.each do |category| %>
     <%= link_to category.name, category_pages_path(name: category.name), class: 'item' %>
   <% end %>
+
 </div>
