@@ -1,9 +1,6 @@
 <div class="ui left vertical menu sidebar inverted js-sidebar">
   <div class="item">
-    <div class="ui icon input">
-      <input type="text" placeholder="作品、作者、タグ...">
-      <i class="search icon"></i>
-    </div>
+     <%= render 'shared/search_bar' %>
   </div>
   <% if author_signed_in? %>
     <%= link_to  new_page_path, class: 'item' do %>
