@@ -59,7 +59,24 @@
     <% end %>
   </div>
   <h2>アカウント削除</h2>
-  <%= button_to '削除する', registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'ui basic red button' %>
+  <button type="button" class="ui basic red button js-deleteBtn">削除する</button>
 </div>
 
-<%= javascript_pack_tag 'author.js' %>
+<div class="ui basic modal js-deleteModal">
+  <div class="ui icon header">
+    <i class="remove user icon"></i>
+    アカウントの削除
+  </div>
+  <div class="content">
+    <p>たくさんの読者があなたの小説を楽しみにしています。本当に消しますか？</p>
+  </div>
+  <div class="actions">
+    <%= link_to '削除する',  registration_path(resource_name), method: :delete, class: 'ui red basic cancel inverted button' %>
+    <div class="ui green ok inverted button">
+      やっぱり辞める
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'author' %>
+<%= javascript_pack_tag 'modal' %>

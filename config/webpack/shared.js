@@ -15,6 +15,8 @@ const extensionGlob = `**/*{${settings.extensions.join(',')}}*`
 const entryPath = join(settings.source_path, settings.source_entry_path)
 const packPaths = sync(join(entryPath, extensionGlob))
 
+const Dotenv = require('dotenv-webpack')
+
 module.exports = {
   entry: packPaths.reduce(
     (map, entry) => {
@@ -41,6 +43,10 @@ module.exports = {
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true
+    }),
+    new Dotenv({
+      path: './.env',
+      safe: false
     })
   ],
 

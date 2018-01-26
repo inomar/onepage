@@ -5,3 +5,6 @@ $(document).on('change', '.js-imageUpload', () => {
   const label = $file[0].files[0].name;
   $input.val(label);
 });
+
+
+$('.js-deleteModal').modal('attach events', '.js-deleteBtn', 'show');
