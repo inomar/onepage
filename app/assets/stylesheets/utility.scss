@@ -16,8 +16,12 @@ $gray-medium-light: #eaeaea;
 }
 // TODO: 画像
 .ui {
-  &-main {
-    &__image {
+  &.main {
+    &__visual {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 50px;
       background-image: url(https://images.unsplash.com/photo-1499744632587-7798360ba20f?auto=format&fit=crop&w=2850&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
     }
   }
@@ -103,7 +107,6 @@ ul.tag-it {
 .css4 { font-size: 1.6em; }
 
 .ui.inverted.segment {
-  background-image: url(https://i.ytimg.com/vi/r8GuIF9f_HM/maxresdefault.jpg);
 }
 .masthead.segment {
   min-height: 185px;

@@ -60,20 +60,20 @@
 /******/ 	__webpack_require__.p = "/packs/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 30);
+/******/ 	return __webpack_require__(__webpack_require__.s = 49);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 30:
-/*!****************************************!*\
-  !*** ./app/javascript/packs/author.js ***!
-  \****************************************/
+/***/ 49:
+/*!***************************************!*\
+  !*** ./app/javascript/packs/modal.js ***!
+  \***************************************/
 /*! no static exports found */
 /*! all exports used */
 /***/ (function(module, exports) {
 
-eval("// iconアップロード時に画像名を表示\n$(document).on('change', '.js-imageUpload', function () {\n  var $file = $('.js-imageUpload');\n  var $input = $('.js-imageUploadText');\n  var label = $file[0].files[0].name;\n  $input.val(label);\n});\n\n$('.js-deleteModal').modal('attach events', '.js-deleteBtn', 'show');//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMzAuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvamF2YXNjcmlwdC9wYWNrcy9hdXRob3IuanM/ZTRjNCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBpY29u44Ki44OD44OX44Ot44O844OJ5pmC44Gr55S75YOP5ZCN44KS6KGo56S6XG4kKGRvY3VtZW50KS5vbignY2hhbmdlJywgJy5qcy1pbWFnZVVwbG9hZCcsIGZ1bmN0aW9uICgpIHtcbiAgdmFyICRmaWxlID0gJCgnLmpzLWltYWdlVXBsb2FkJyk7XG4gIHZhciAkaW5wdXQgPSAkKCcuanMtaW1hZ2VVcGxvYWRUZXh0Jyk7XG4gIHZhciBsYWJlbCA9ICRmaWxlWzBdLmZpbGVzWzBdLm5hbWU7XG4gICRpbnB1dC52YWwobGFiZWwpO1xufSk7XG5cbiQoJy5qcy1kZWxldGVNb2RhbCcpLm1vZGFsKCdhdHRhY2ggZXZlbnRzJywgJy5qcy1kZWxldGVCdG4nLCAnc2hvdycpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIC4vYXBwL2phdmFzY3JpcHQvcGFja3MvYXV0aG9yLmpzXG4vLyBtb2R1bGUgaWQgPSAzMFxuLy8gbW9kdWxlIGNodW5rcyA9IDUiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///30\n");
+eval("$('.js-deleteModal').modal('attach events', '.js-deleteBtn', 'show');//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiNDkuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvamF2YXNjcmlwdC9wYWNrcy9tb2RhbC5qcz9kNzQxIl0sInNvdXJjZXNDb250ZW50IjpbIiQoJy5qcy1kZWxldGVNb2RhbCcpLm1vZGFsKCdhdHRhY2ggZXZlbnRzJywgJy5qcy1kZWxldGVCdG4nLCAnc2hvdycpO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIC4vYXBwL2phdmFzY3JpcHQvcGFja3MvbW9kYWwuanNcbi8vIG1vZHVsZSBpZCA9IDQ5XG4vLyBtb2R1bGUgY2h1bmtzID0gNCJdLCJtYXBwaW5ncyI6IkFBQUEiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///49\n");
 
 /***/ })
 

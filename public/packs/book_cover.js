@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/packs/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 29);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -314,23 +314,6 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 
 "use strict";
 eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = stats;\nfunction stats() {\n  var _this = this;\n\n  return {\n    total: function total() {\n      var url = \"/stats/total\";\n\n      return _this.request({\n        url: url,\n        method: \"GET\"\n      });\n    }\n  };\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjMuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9ub2RlX21vZHVsZXMvdW5zcGxhc2gtanMvbGliL21ldGhvZHMvc3RhdHMuanM/NTlkMiJdLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcblxuT2JqZWN0LmRlZmluZVByb3BlcnR5KGV4cG9ydHMsIFwiX19lc01vZHVsZVwiLCB7XG4gIHZhbHVlOiB0cnVlXG59KTtcbmV4cG9ydHMuZGVmYXVsdCA9IHN0YXRzO1xuZnVuY3Rpb24gc3RhdHMoKSB7XG4gIHZhciBfdGhpcyA9IHRoaXM7XG5cbiAgcmV0dXJuIHtcbiAgICB0b3RhbDogZnVuY3Rpb24gdG90YWwoKSB7XG4gICAgICB2YXIgdXJsID0gXCIvc3RhdHMvdG90YWxcIjtcblxuICAgICAgcmV0dXJuIF90aGlzLnJlcXVlc3Qoe1xuICAgICAgICB1cmw6IHVybCxcbiAgICAgICAgbWV0aG9kOiBcIkdFVFwiXG4gICAgICB9KTtcbiAgICB9XG4gIH07XG59XG5cblxuLy8vLy8vLy8vLy8vLy8vLy8vXG4vLyBXRUJQQUNLIEZPT1RFUlxuLy8gLi9ub2RlX21vZHVsZXMvdW5zcGxhc2gtanMvbGliL21ldGhvZHMvc3RhdHMuanNcbi8vIG1vZHVsZSBpZCA9IDIzXG4vLyBtb2R1bGUgY2h1bmtzID0gMSAyIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///23\n");
-
-/***/ }),
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */
-/*!*********************************************!*\
-  !*** ./app/javascript/packs/application.js ***!
-  \*********************************************/
-/*! exports provided:  */
-/*! all exports used */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("Object.defineProperty(__webpack_exports__, \"__esModule\", { value: true });\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__book_cover__ = __webpack_require__(/*! ./book_cover */ 7);\n/* eslint no-console:0 */\n// This file is automatically compiled by Webpack, along with any other files\n// present in this directory. You're encouraged to place your actual application logic in\n// a relevant structure within app/javascript and only use these pack files to reference\n// that code so it'll be compiled.\n//\n// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate\n// layout file, like app/views/layouts/application.html.erb\n\n\n\nconsole.log('Hello World from Webpacker');\n$('.js-authorMenu .item').tab();\n\n$(document).on('click', '.js-openSidebar', function () {\n    $('.js-sidebar').sidebar('toggle');\n});\n$('.dropdown').dropdown();\n$('.js-postMenu .item').tab();\n\n$('.js-navMenu').popup({\n    hoverable: true,\n    position: 'bottom left',\n    delay: {\n        show: 300,\n        hide: 300\n    }\n});\n$('.js-headerOverlay').visibility({\n    type: 'fixed',\n    once: false,\n    continuous: true,\n    onPassing: function onPassing(calculations) {\n        var newColor = 'rgba(2, 2, 2, ' + calculations.percentagePassed + ')';\n        $(this).css('background-color', newColor);\n    }\n});\n$('.js-fadeInImage').visibility({\n    type: 'image',\n    transition: 'fade in',\n    duration: 1000\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMjkuanMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvamF2YXNjcmlwdC9wYWNrcy9hcHBsaWNhdGlvbi5qcz8yMDQ3Il0sInNvdXJjZXNDb250ZW50IjpbIi8qIGVzbGludCBuby1jb25zb2xlOjAgKi9cbi8vIFRoaXMgZmlsZSBpcyBhdXRvbWF0aWNhbGx5IGNvbXBpbGVkIGJ5IFdlYnBhY2ssIGFsb25nIHdpdGggYW55IG90aGVyIGZpbGVzXG4vLyBwcmVzZW50IGluIHRoaXMgZGlyZWN0b3J5LiBZb3UncmUgZW5jb3VyYWdlZCB0byBwbGFjZSB5b3VyIGFjdHVhbCBhcHBsaWNhdGlvbiBsb2dpYyBpblxuLy8gYSByZWxldmFudCBzdHJ1Y3R1cmUgd2l0aGluIGFwcC9qYXZhc2NyaXB0IGFuZCBvbmx5IHVzZSB0aGVzZSBwYWNrIGZpbGVzIHRvIHJlZmVyZW5jZVxuLy8gdGhhdCBjb2RlIHNvIGl0J2xsIGJlIGNvbXBpbGVkLlxuLy9cbi8vIFRvIHJlZmVyZW5jZSB0aGlzIGZpbGUsIGFkZCA8JT0gamF2YXNjcmlwdF9wYWNrX3RhZyAnYXBwbGljYXRpb24nICU+IHRvIHRoZSBhcHByb3ByaWF0ZVxuLy8gbGF5b3V0IGZpbGUsIGxpa2UgYXBwL3ZpZXdzL2xheW91dHMvYXBwbGljYXRpb24uaHRtbC5lcmJcblxuaW1wb3J0IEJvb2tDb3ZlciBmcm9tICcuL2Jvb2tfY292ZXInO1xuXG5jb25zb2xlLmxvZygnSGVsbG8gV29ybGQgZnJvbSBXZWJwYWNrZXInKTtcbiQoJy5qcy1hdXRob3JNZW51IC5pdGVtJykudGFiKCk7XG5cbiQoZG9jdW1lbnQpLm9uKCdjbGljaycsICcuanMtb3BlblNpZGViYXInLCBmdW5jdGlvbiAoKSB7XG4gICAgJCgnLmpzLXNpZGViYXInKS5zaWRlYmFyKCd0b2dnbGUnKTtcbn0pO1xuJCgnLmRyb3Bkb3duJykuZHJvcGRvd24oKTtcbiQoJy5qcy1wb3N0TWVudSAuaXRlbScpLnRhYigpO1xuXG4kKCcuanMtbmF2TWVudScpLnBvcHVwKHtcbiAgICBob3ZlcmFibGU6IHRydWUsXG4gICAgcG9zaXRpb246ICdib3R0b20gbGVmdCcsXG4gICAgZGVsYXk6IHtcbiAgICAgICAgc2hvdzogMzAwLFxuICAgICAgICBoaWRlOiAzMDBcbiAgICB9XG59KTtcbiQoJy5qcy1oZWFkZXJPdmVybGF5JykudmlzaWJpbGl0eSh7XG4gICAgdHlwZTogJ2ZpeGVkJyxcbiAgICBvbmNlOiBmYWxzZSxcbiAgICBjb250aW51b3VzOiB0cnVlLFxuICAgIG9uUGFzc2luZzogZnVuY3Rpb24gb25QYXNzaW5nKGNhbGN1bGF0aW9ucykge1xuICAgICAgICB2YXIgbmV3Q29sb3IgPSAncmdiYSgyLCAyLCAyLCAnICsgY2FsY3VsYXRpb25zLnBlcmNlbnRhZ2VQYXNzZWQgKyAnKSc7XG4gICAgICAgICQodGhpcykuY3NzKCdiYWNrZ3JvdW5kLWNvbG9yJywgbmV3Q29sb3IpO1xuICAgIH1cbn0pO1xuJCgnLmpzLWZhZGVJbkltYWdlJykudmlzaWJpbGl0eSh7XG4gICAgdHlwZTogJ2ltYWdlJyxcbiAgICB0cmFuc2l0aW9uOiAnZmFkZSBpbicsXG4gICAgZHVyYXRpb246IDEwMDBcbn0pO1xuXG5cbi8vLy8vLy8vLy8vLy8vLy8vL1xuLy8gV0VCUEFDSyBGT09URVJcbi8vIC4vYXBwL2phdmFzY3JpcHQvcGFja3MvYXBwbGljYXRpb24uanNcbi8vIG1vZHVsZSBpZCA9IDI5XG4vLyBtb2R1bGUgY2h1bmtzID0gMSJdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQTtBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///29\n");
 
 /***/ })
 /******/ ]);
