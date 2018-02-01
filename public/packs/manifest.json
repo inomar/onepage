@@ -1,9 +1,0 @@
-{
-  "application.js": "/packs/application.js",
-  "author.js": "/packs/author.js",
-  "book_cover.js": "/packs/book_cover.js",
-  "hello_react.js": "/packs/hello_react.js",
-  "modal.js": "/packs/modal.js",
-  "page.js": "/packs/page.js",
-  "semantic/tasks/config/admin/templates/bower.js": "/packs/semantic/tasks/config/admin/templates/bower.js"
-}
